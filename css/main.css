@@ -1,0 +1,421 @@
+html,body{
+    height: 100%;
+}
+
+.page-content,.page-side{
+    height: inherit;
+    float: left;
+}
+.preelect{
+    border-top:1px solid #ddd;
+    height: 135px;
+}
+
+.page-content{
+    width: 75%;
+}
+.page-side{
+    width: 25%;
+    background: #444;
+    padding: 10px;
+}
+
+.order-set{
+    height: inherit;
+    margin-bottom: -135px;
+    padding-bottom:135px;
+
+}
+
+.order-list,.order-conf{
+    width: 50%;
+    height: 100%;
+    background: #f5f5f5;
+    /*padding: 8px;*/
+    float: left;
+}
+
+.order-list{
+    border-right:1px solid #ddd;
+}
+.order-conf{
+    border-left:1px solid #fff;
+}
+.order-list table,.order-conf table{
+    width: 100%;
+    border-top:1px solid #fff;
+    color: #555;
+    font-size: 14px;
+}
+.table-list > tbody >tr>td{
+    padding:6px 12px;
+}
+.table-list > tbody >tr>td:last-child{
+    text-align: right;
+}
+
+.table-list > tbody >tr:nth-child(2n){
+    background: #fff;
+}
+
+.table-list > tbody >tr:hover{
+    cursor: pointer;
+    background: #8cc63e;
+    color: #fff;
+    transition: all .2s;
+}
+
+.total-order{
+    border-bottom:1px solid #ddd;
+    padding: 12px 12px;
+    font-size: 16px;
+}
+.total-order span{
+    float: left;
+}
+
+.total-order .total{
+    float: right;
+}
+
+.total-order .tip{
+    font-size: 14px;
+    color: #999;
+}
+.total-order .tip em{
+    font-style: normal;
+}
+/* 分单 */
+.menu-single{
+
+}
+
+.menu-single .total-order{
+    background: #8cc63f;
+    color: #fff;
+}
+
+.menu-single .table-list > tbody >tr:nth-child(2n+1){
+    background: #eefac8;
+}
+.menu-single .table-list > tbody >tr:nth-child(2n){
+    background: #fff;
+}
+.menu-single .table-list > tbody >tr:hover{
+    background: #f7951e;
+    color: #fff;
+    transition: all .2s;
+}
+
+/* 撤销菜单 */
+.menu-undo{}
+
+.menu-undo .total-order{
+    background: #af1d1d;
+    color: #fff;
+}
+
+.menu-undo .table-list{
+    color:#af1d1d;
+}
+.menu-undo .table-list > tbody >tr:nth-child(2n+1){
+    background: #ffe6e6;
+}
+.menu-undo .table-list > tbody >tr:nth-child(2n){
+    background: #fff;
+}
+.menu-undo .table-list > tbody >tr:hover{
+    background: #f7951e;
+    color: #fff;
+    transition: all .2s;
+}
+
+
+.payment{
+    padding: 0;
+    list-style: none;
+    margin:20px 0;
+}
+.payment li{
+    float: left;
+    margin: 0 8px;
+}
+.payment li a{
+    font-size: 12px;
+    color: #fff;
+    display: block;
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    border:1px solid #626262;
+    text-align:center;
+    margin:5px auto;
+    background: linear-gradient(#494949, #1A1A1A);
+    padding-top: 10px;
+    text-decoration: none;
+}
+.payment li a .fa{
+    font-size: 18px;
+}
+.payment li a b{
+    font-weight: normal;
+    display: block;
+}
+.payment li a:hover,.payment li a:active{
+
+    background: linear-gradient(#1A1A1A, #494949);
+}
+.payment li.active a{
+    background: #000;
+}
+
+.func-box{
+    height: inherit;
+    margin-bottom: -287px;
+}
+.func-set{
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid #626262;
+    border-right: 1px solid #626262; color: #FFF;
+}
+
+.func-set li{
+    float: left;
+    width: 33.33%;
+    color:#fff;
+    border-left: 1px solid #626262;
+    border-bottom: 1px solid #626262; color: #FFF;
+    background:  linear-gradient( #494949, #1A1A1A);
+    text-align: center;
+    padding: 15px 0;
+    cursor: pointer;
+    transition: all .2s;
+}
+.func-set li:hover,.func-set li.active{
+    background:  #000;
+}
+
+.btn-set{
+    width: 100%;
+    background: #f7951e;
+    color: #312a2a;
+    border: none;
+    padding: 10px ;
+}
+.btn-set:hover{
+    background: #f28909;
+    color: #fff;
+}
+
+.calculator{
+    position: relative;
+    z-index: 3;
+}
+.calculator-table{
+    width: 100%;
+}
+
+
+.calculator-enter{
+    text-align: right;
+    width: 100%;
+    border:none;
+    outline: none;
+    font-size: 18px;
+    height: 30px;
+}
+.calculator-output{
+    background: #fff;
+    padding: 8px;
+}
+
+.calculator-status{
+    height: 22px;
+    font-size: 14px;
+    color: #999;
+}
+.calculator-table > tbody >tr >td{
+    width: 25%;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    border:1px solid #626262;
+    background:  linear-gradient( #494949, #1A1A1A);
+    cursor: pointer;
+}
+.calculator-table > tbody >tr >td:hover,.calculator-table > tbody >tr >td.active{
+    background: #000;
+}
+.calculator-table > tbody >tr >td.disabled{
+    background: #999;
+    cursor: auto;
+}
+
+
+
+.btn-confirm{
+    background: linear-gradient(#F7951E, #F7951E) !important;
+}
+
+/* 右侧菜单列表 展示  */
+
+.food-list{
+    list-style: none;
+    padding: 4px;
+    margin: 0;
+    border-top:1px solid #fff;
+}
+.food-list:first-child{
+    border-top:none;
+    border-bottom: 1px solid #ddd;
+}
+.food-list:after{
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.food-list >li {
+    float: left;
+    width: 96px;
+    height: 96px;
+    border-radius: 8px;
+    text-align: center;
+    color: #fff;
+    padding: 8px;
+    margin: 4px;
+    cursor: pointer;
+}
+.food-list >li:hover{
+    opacity: .85;
+    transition: all .2s;
+}
+.food-list >li>i{
+    font-size: 30px;
+    margin: 10px 0 5px;
+}
+.food-list >li >em{
+    display: block;
+    font-style: normal;
+}
+.food-list >li > .food-detail >b{
+    font-weight: normal;
+    font-size: 12px;
+}
+
+.food-list > .food-blue,.preelect .preelect-blue{
+    background:#223a78;
+}
+.food-list > .food-red,.preelect .preelect-red{
+    background:#e52230;
+}
+.food-list > .food-yellow,.preelect .preelect-yellow{
+    background:#ef9825;
+}
+.food-list > .food-green,.preelect .preelect-green{
+    background:#28a047;
+}
+
+
+/* 底部预选菜单列表 */
+.preelect{
+    white-space:nowrap;
+    overflow-x:scroll;
+    font-size: 0;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.preelect .preelect-list{
+    width: 96px;
+    height: 96px;
+   /* background: #e52230;*/
+    border-radius: 8px;
+    margin: 10px 0px 10px 10px;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    display: inline-block;
+    cursor:pointer;
+}
+.preelect-status{
+    font-size: 0;
+    padding: 5px;
+    height: 30px;
+    position: relative;
+}
+.preelect-status b{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    font-size: 12px;
+    line-height: 20px;
+    overflow: hidden;
+
+    position: absolute;
+    top: 5px;
+}
+.preelect-status b.ps-isToGo{
+    background: #ccc;
+    left: 5px;
+}
+.preelect-status b.ps-attribute{
+    background: #8cc63f;
+    left: 50%;
+    margin-left: -10px;
+}
+.preelect-status b.ps-num{
+    background: #f21b1c;
+    right: 5px;
+}
+
+.preelect-info{
+    padding: 5px;
+}
+
+
+/* 切换餐桌 */
+
+.change-table{}
+.change-table .changeTab-title{
+    background: #8cc63f;
+    text-align: center;
+    color: #fff;
+    padding: 6px 12px;
+    margin-top: 50px;
+}
+
+/* 菜品属性 */
+.dishes-attribute{
+    list-style: none;
+    padding: 7px;
+    margin: 0;
+}
+.dishes-attribute li{
+    float: left;
+    width: 80px;
+    height: 80px;
+    background: #7d151e;
+    color: #fff;
+    border-radius: 8px;
+    margin: 1px;
+    text-align: center;
+    padding: 8px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.dishes-attribute li b,.dishes-attribute li em{
+    font-style: normal;
+    font-weight: normal;
+    display: block;
+    font-size: 12px;
+}
+.dishes-attribute li.active{
+    background: #3ab85f;
+}
+.dishes-attribute li.attr-btn{
+    background: #28a047;
+    line-height: 64px;
+}

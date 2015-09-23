@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<section class="page-content">
+    <div class="order-set">
+        <div class="order-list" id="selected-dishes">
+            <div class="total-order clearfix">
+                <span class="total-name">餐桌总额：</span>
+                <span class="tip">(小费：<em>0.00</em>)</span>
+                <span class="total"><b>508.00</b><i class="fa fa-euro fa-fw"></i></span>
+            </div>
+            <table class="table-list"><tbody></tbody></table>
+        </div>
+        <div class="order-conf" id="order-conf">
+
+            <!--<ul class="food-list" id="food-category">
+                <li>
+                    <i class="fa fa-glass"></i>
+                    <em>name</em>
+                </li>
+            </ul>-->
+            <!--<ul class="food-list">
+                <li>
+                    <i class="fa fa-glass"></i>
+                    <em>name</em>
+                </li>
+                <li>
+                    <i class="fa fa-beer"></i>
+                    <em>name</em>
+                </li>
+                <li>
+                    <i class="fa fa-cutlery"></i>
+                    <em>name</em>
+                </li>
+                <li>
+                    <i class="fa fa-coffee"></i>
+                    <em>name</em>
+                </li>
+            </ul>-->
+            <!--<div class="menu-single">
+                &lt;!&ndash; menu-single menu-undo : 分单 和 撤销菜单&ndash;&gt;
+                <div class="total-order clearfix">
+                    <span class="total-name">已选总额：</span>
+                    &lt;!&ndash;  <span class="tip">(小费：<em>0.00</em>)</span>&ndash;&gt;
+                    <span class="total">508.00<i class="fa fa-euro fa-fw"></i></span>
+                </div>
+                <table class="table-list">
+                    <tbody>
+                        <tr data-food-id="1003">
+                            <td>1</td>
+                            <td>1003</td>
+                            <td>noodles </td>
+                            <td>是</td>
+                            <td>36.00<i class="fa fa-euro fa-fw"></i></td>
+                            <td>36.00<i class="fa fa-euro fa-fw"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>-->
+        </div>
+    </div>
+    <ul class="preelect" id="preelect">
+        <!--预选-->
+        <!--<div class="preelect-list">
+            <div class="preelect-status">
+                <b title="ToGo" class="ps-isToGo"></b>
+                <b title="attribute" class="ps-attribute"></b>
+                <b title="123" class="ps-num">123</b>
+            </div>
+            <div class="preelect-info">name</div>
+        </div>-->
+    </ul>
+</section>
+<section class="page-side">
+    <div class="func-box">
+        <ul class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li>2号餐桌</li>
+        </ul>
+        <ul class="func-set clearfix" id="func-set">
+            <li data-key="changeTable">换桌</li>
+            <li data-key="cancelMenu">撤消菜单</li>
+            <li data-key="cancelTable">撤消餐桌</li>
+            <li data-key="discount">折扣</li>
+            <li data-key="tip">小费</li>
+            <li data-key="dishesAttribute">菜品属性</li>
+            <li data-key="notPrint" class="active">不打印</li>
+            <li data-key="printInvoices">打印发票</li>
+            <li data-key="printCompanyInvoice">打印公司发票</li>
+        </ul>
+        <button type="button" class="btn-set" id="func-set-btn" data-key="back">Back</button>
+        <ul class="payment clearfix" id="payment-way">
+            <li data-key="0" class="active"><a href="#" title="Cash"><i class="fa fa-money"></i><b>Cash</b></a></li>
+            <li data-key="1"><a href="#" title="Master"><i class="fa fa-thumbs-up"></i><b>Master</b></a></li>
+            <li data-key="2"><a href="#" title="Visa"><i class="fa fa-money"></i><b>Visa</b></a></li>
+            <li data-key="3"><a href="#" title="Amex"><i class="fa fa-credit-card"></i><b>Amex</b></a></li>
+            <li data-key="4"><a href="#" title="Vip"><i class="fa fa-thumbs-up"></i><b>Vip</b></a></li>
+            <li data-key="5"><a href="#" title="Other"><i class="fa fa-ellipsis-h"></i><b>Other</b></a></li>
+        </ul>
+    </div>
+    <div class="calculator" id="calculator">
+        <div class="calculator-output" id="calculatorOutput">
+            <input type="text" value="" class="calculator-enter" id="calcEnter">
+            <div class="calculator-status" id="calcStatus">请输入要查询有菜品编号</div>
+        </div>
+        <table class="calculator-table" id="calculatorTable">
+            <tbody>
+                <tr>
+                    <td data-key="7">7</td>
+                    <td data-key="8">8</td>
+                    <td data-key="9">9</td>
+                    <td data-key="AC">AC</td>
+                </tr>
+                <tr>
+                    <td data-key="4">4</td>
+                    <td data-key="5">5</td>
+                    <td data-key="6">6</td>
+                    <td data-key="times" id="calcTimes">×</td>
+                </tr>
+                <tr>
+                    <td data-key="1">1</td>
+                    <td data-key="2">2</td>
+                    <td data-key="3">3</td>
+                    <td data-key="submit" data-status="addOrder" rowspan="2" class="btn-confirm" id="calcBtn">确定</td>
+                </tr>
+                <tr>
+                    <!--<td data-key="tip">€</td>
+                    <td data-key="discount">%</td>-->
+                    <td data-key="TOGO" id="calcTdChange">TOGO</td>
+                    <td data-key="0">0</td>
+                    <td data-key="decimal" class="disabled" id="calcDecimal">.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- jQuery first, then Bootstrap JS. -->
+<script src="js/require.js" data-main="js/main"></script>
+</body>
+</html>
