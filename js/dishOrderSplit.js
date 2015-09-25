@@ -21,14 +21,28 @@ define(['jquery','variable','initialization'],function($, variable,initializatio
          * targetTotal  总价格所处关系
          * @type {string}
          */
+
+        if(variable.operateStatus == 'changeTable'){
+            if(variable.changeTableNumber == ''){
+                alert('请先添加所要换的桌号');
+                return;
+            }
+        }
+
         //创建分单与撤消菜品容器 从左到右菜品移入
         if(variable.$menuMan == null && jsToSelected == false){
             variable.$menuMan = initialization.createSingleCase(variable.isSingle);
-            variable.$orderConf.empty().append(variable.$menuMan);
+
+            if(variable.operateStatus == 'changeTable'){
+                variable.$orderConf.append(variable.$menuMan);
+            }else{
+                variable.$orderConf.empty().append(variable.$menuMan);
+            }
+
         }
 
-        // 分单状态下状态
-        if(variable.isSingle){
+        // 分单状态下状态 如果
+        if(variable.isSingle && variable.operateStatus != 'changeTable'){
             variable.$funcSetBtn.attr('data-key','cancelSingle').text(variable.funSetBtnText['cancelSingle']);
             variable.$calculatorTable.find('td:not([data-key="submit"])').addClass('disabled');
             variable.operateStatus = 'single';
@@ -36,6 +50,7 @@ define(['jquery','variable','initialization'],function($, variable,initializatio
             variable.$calculatorStatus.text('');
             variable.$funcSet.find('li:lt(6)').removeClass('active');
         }
+
 
         var targetParent = jsToSelected ? '$selectedDishes' : '$orderConf';
         var targetTotal = jsToSelected ? 'singleUndoTotal' : 'selectedDishesTotal';
@@ -111,7 +126,11 @@ define(['jquery','variable','initialization'],function($, variable,initializatio
         }
 
         // 判断variable.dishOrderSplit 中是否还有数据，即右侧分单或撤消容器中还是否存在数据
+
+        console.log(variable.dishOrderSplit)
         if(!variable.dishOrderSplit.splitList.length){
+
+
             // 如果当前不存在数则还原页面到初始状态
             initialization.dishesCategory();
             initialization.calculatorInit();

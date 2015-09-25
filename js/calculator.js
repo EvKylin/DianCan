@@ -38,7 +38,7 @@ define(['jquery','variable','mixin','initialization'],function($, variable,mixin
                     $.post(variable.tableQueryUrl,{tableId:calcVal},function(data){
                         var data = {
                             status : true,
-                            dishTableId : 12
+                            dishTableId : calcVal
                         } // 模拟数据
                         if(data.status == true){
                             $calculatorStatus.text('点击确认切换。');
@@ -166,14 +166,36 @@ define(['jquery','variable','mixin','initialization'],function($, variable,mixin
                 }
                 break;
             case 'changeTable':
-                if(tableNumber != ''){
-                    initialization.changeTable();
 
-                    // 还原状态
-                    initialization.calculatorInit();
-                    variable.operateStatus = '';
-                    variable.$funcSetBtn.attr('data-key','back').text(variable.funSetBtnText['back']);
-                    variable.$funcSet.find('li:lt(6)').removeClass('active');
+                alert(tableNumber)
+                if(tableNumber != ''){
+                    variable.changeTableNumber = tableNumber;
+                    initialization.changeTable(tableNumber);
+
+                    $calculatorEnter.val('');
+                    tableNumber = '';
+
+                    variable.$menuMan = null;
+                    initialization.initSelectedDishes();
+                    variable.dishOrderSplit.empty();
+
+                }else{
+                    if(variable.dishOrderSplit.splitList.length){
+                        console.log(variable.dishOrderSplit);
+
+
+                        // 还原状态
+                        variable.dishOrderSplit.empty();
+                        variable.$menuMan = null;
+                        initialization.dishesCategory();
+                        initialization.calculatorInit();
+                        variable.operateStatus = '';
+                        variable.$funcSetBtn.attr('data-key','back').text(variable.funSetBtnText['back']);
+                        variable.$funcSet.find('li:lt(6)').removeClass('active');
+                    }else{
+                        alert('请输入餐桌号');
+                    }
+
                 }
 
                 break;

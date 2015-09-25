@@ -46,9 +46,9 @@ define(['variable'],function(variable){
     }
 
     // 换桌 初始化
-    function changeTable(){
+    function changeTable(tableNumber){
         var html = '<div class="change-table">'+
-            '<div class="changeTab-title">餐桌已换到105号</div>'+
+            '<div class="changeTab-title">餐桌已换到'+tableNumber+'号</div>'+
             '</div>';
         variable.$orderConf.empty().append(html);
     }

@@ -51,6 +51,7 @@ define(['jquery','utilities'],function($,utilities){
         selectedDishesTotal : 0,                          // 选定菜品总价
         singleUndoTotal     : 0,                          // 撤销菜单和取消分单总价
         isSingle            : true,                      // 分单还是撤销菜单
+        changeTableNumber   : '',                         // 换桌号
         $menuMan            : null,                      // 已下菜单单处理容器
         isToGo              : false,                     // 是否打包带走
         dishCountType       : 'pay',                      // 折扣类型：下单（order）| 买单（pay）
