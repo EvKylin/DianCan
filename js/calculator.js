@@ -1,9 +1,10 @@
 define(['jquery','variable','mixin','initialization'],function($, variable,mixin,initialization){
     'use strict';
     // 计算器模块
-    var $calculatorEnter = variable.$calculatorEnter;
-    var $calculatorStatus = variable.$calculatorStatus;
+    var $calculatorEnter   = variable.$calculatorEnter;
+    var $calculatorStatus  = variable.$calculatorStatus;
     var $calculatorDecimal = variable.$calculatorDecimal;
+    var $calculatorIcon    = variable.$calculatorIcon;
 
     var dishQueryData = '';// 查询添加的菜品数据
     var dishQueryNum = 1;   // 添加的份数
@@ -104,14 +105,17 @@ define(['jquery','variable','mixin','initialization'],function($, variable,mixin
                 if(variable.dishCountType == 'order'){
                     var $this = $($this);
                     $calculatorEnter.val('').focus();
+                    $calculatorIcon.addClass('calculator-icon').removeClass('calculator-icon-money calculator-icon-percent');
                     if(variable.discountType == 'percent'){
                         variable.discountType = 'discountPrice';
                         $this.attr('data-type','discountPrice').text('€');
+                        $calculatorIcon.addClass('calculator-icon-money');
                         $calculatorDecimal.removeClass('disabled');
 
                     }else{
                         variable.discountType = 'percent';
                         $this.attr('data-type','percent').text('%');
+                        $calculatorIcon.addClass('calculator-icon-percent');
                         $calculatorDecimal.addClass('disabled');
                     }
                 }

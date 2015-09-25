@@ -13,6 +13,7 @@ define(['jquery','utilities'],function($,utilities){
         $calculatorSubmit   : $('#calcBtn'),              // 计算器按钮
         $calculatorEnter    : $('#calcEnter'),            // 计算器输入框
         $calculatorStatus   : $('#calcStatus'),           // 计算器状态框
+        $calculatorIcon     :$('#calcIcon'),              // 计算器小费折扣状态
         calculatorText      : {
             changeTable     : '请输入需要更换的餐桌',
             tip             : '请输入小费金额',

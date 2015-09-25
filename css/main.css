@@ -229,6 +229,30 @@ html,body{
     background: #fff;
     padding: 8px;
 }
+.calculator-icon{
+    position: relative;
+}
+.calculator-icon:before{
+    font-size: 16px;
+    font-weight: bold;
+    display: table;
+    line-height: 30px;
+    position: absolute;
+    right: 0;
+    top:0;
+}
+.calculator-icon-percent{
+    padding-right: 16px;
+}
+.calculator-icon-percent:before{
+    content: '%';
+}
+.calculator-icon-money{
+    padding-right: 10px;
+}
+.calculator-icon-money:before{
+    content: '€';
+}
 
 .calculator-status{
     height: 22px;

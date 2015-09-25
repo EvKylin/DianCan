@@ -61,7 +61,7 @@ define(['variable'],function(variable){
         variable.$calculatorSubmit.attr('data-status','confirm').text(variable.calculatorText.confirm);
         variable.$calculatorEnter.val('');
         variable.$calculatorStatus.text(variable.calculatorText.addOrder);
-
+        variable.$calculatorIcon.removeClass('calculator-icon calculator-icon-money calculator-icon-percent');
     }
 
     // 菜品属性

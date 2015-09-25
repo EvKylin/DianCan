@@ -12,6 +12,7 @@ define(['jquery','variable','initialization'],function($, variable,initializatio
     var $calculatorTimes    = variable.$calculatorTimes;
     var $calculatorDecimal  = variable.$calculatorDecimal;
     var $calculatorSubmit   = variable.$calculatorSubmit;
+    var $calculatorIcon     = variable.$calculatorIcon;
 
     var $calculatorEnter = variable.$calculatorEnter;
     var $calculatorStatus = variable.$calculatorStatus;
@@ -128,11 +129,16 @@ define(['jquery','variable','initialization'],function($, variable,initializatio
                         $calculatorTdChange.addClass('active').attr({'data-key':'discount','data-type':'percent'}).text('%');
                         $calculatorTimes.addClass('disabled');
                         $calculatorDecimal.addClass('disabled');
+
+
+                        $calculatorIcon.addClass('calculator-icon calculator-icon-percent');
                         break;
                     case 'tip':
                         $calculatorTdChange.addClass('active').attr('data-key','tip').text('€');
                         $calculatorTimes.addClass('disabled');
                         $calculatorDecimal.removeClass('disabled');
+
+                        $calculatorIcon.addClass('calculator-icon calculator-icon-money');
 
                         console.log(new Date()+' : ' + dataKey);
                         break;
