@@ -13,14 +13,15 @@ define(['jquery','utilities'],function($,utilities){
         $calculatorSubmit   : $('#calcBtn'),              // 计算器按钮
         $calculatorEnter    : $('#calcEnter'),            // 计算器输入框
         $calculatorStatus   : $('#calcStatus'),           // 计算器状态框
-        $calculatorIcon     :$('#calcIcon'),              // 计算器小费折扣状态
+        $calculatorIcon     : $('#calcIcon'),              // 计算器小费折扣状态
         calculatorText      : {
             changeTable     : '请输入需要更换的餐桌',
             tip             : '请输入小费金额',
             discount        : '请输入折扣比',
             print           : '打印',
             confirm         : '确定',
-            addOrder        : '请输入要查询有菜品编号'
+            addOrder        : '请输入要查询有菜品编号',
+            dishQuery        : '请输入要查询有菜品编号'
 
         },
         dishesQueryUrl        : '',                       // 菜品查询地址
@@ -45,6 +46,8 @@ define(['jquery','utilities'],function($,utilities){
             cancelDishesAttribute : '取消菜品属性',
             cancelAddOrder        : '取消下单流程'
         },                                                // 操作功能文本
+        tip                 : 0,                          // 小费用
+        currencySymbol      : '€',                        // 货币单位
         operateStatus       : '',                         // 操作状态，默认下单
         lastSingleStatus    : '',                         // 记录最近一次分单单位还是撤消操作状态
         printStatus         : 'notPrint',                 // 记录打印

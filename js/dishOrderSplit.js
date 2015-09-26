@@ -29,17 +29,7 @@ define(['jquery','variable','initialization'],function($, variable,initializatio
             }
         }
 
-        //创建分单与撤消菜品容器 从左到右菜品移入
-        if(variable.$menuMan == null && jsToSelected == false){
-            variable.$menuMan = initialization.createSingleCase(variable.isSingle);
 
-            if(variable.operateStatus == 'changeTable'){
-                variable.$orderConf.append(variable.$menuMan);
-            }else{
-                variable.$orderConf.empty().append(variable.$menuMan);
-            }
-
-        }
 
         // 分单状态下状态 如果
         if(variable.isSingle && variable.operateStatus != 'changeTable'){
@@ -49,6 +39,21 @@ define(['jquery','variable','initialization'],function($, variable,initializatio
             variable.$calculatorSubmit.attr('data-status','single').text(variable.calculatorText.confirm);
             variable.$calculatorStatus.text('');
             variable.$funcSet.find('li:lt(6)').removeClass('active');
+
+            variable.tip = 0.00;
+            variable.$selectedDishes.find('span.tip').children('em').text('0.00');
+        }
+
+        //创建分单与撤消菜品容器 从左到右菜品移入
+        if(variable.$menuMan == null && jsToSelected == false){
+            variable.$menuMan = initialization.createSingleCase(variable.isSingle,  variable.operateStatus);
+
+            if(variable.operateStatus == 'changeTable'){
+                variable.$orderConf.append(variable.$menuMan);
+            }else{
+                variable.$orderConf.empty().append(variable.$menuMan);
+            }
+
         }
 
 
@@ -89,11 +94,12 @@ define(['jquery','variable','initialization'],function($, variable,initializatio
                 '<td class="food-num">1</td>'+
                 '<td class="food-id">'+ $this.children('.food-id').text() +'</td>'+
                 '<td class="food-name">'+ $this.children('.food-name').text() +'</td>'+
-                ((variable.isSingle && !jsToSelected) ? '<td class="food-pack">是---</td>' : '')+
+                ((variable.isSingle && !jsToSelected) ? '<td class="food-pack">是</td>' : '')+
                 '<td class="food-price">'+ $this.children('.food-price').text() +'<i class="fa fa-euro fa-fw"></i></td>'+
                 '<td class="food-total"><b>'+ $this.children('.food-price').text() +'</b><i class="fa fa-euro fa-fw"></i></td>'+
                 '</tr>';
             $menuTbody.append($moveHtml);
+            variable.$preelect.empty();  // 清空预览列表
         }
 
         variable[(!jsToSelected ? 'singleUndoTotal':'selectedDishesTotal')] += parseFloat($this.children('.food-price').text()); // 更新目标总价格
@@ -103,6 +109,7 @@ define(['jquery','variable','initialization'],function($, variable,initializatio
         $tdTotalPrice.text(($tdTotalPrice.text()-$tdPrice.text()).toFixed(2));
         variable[targetTotal] = variable[targetTotal] - $tdPrice.text();
         variable[(!jsToSelected ? '$selectedDishes':'$orderConf')].find('span.total b').text(Math.abs(variable[targetTotal]).toFixed(2));
+
 
         // 此处以上全为视图操作
         // 更新分单或撤消菜品的数据
@@ -127,7 +134,6 @@ define(['jquery','variable','initialization'],function($, variable,initializatio
 
         // 判断variable.dishOrderSplit 中是否还有数据，即右侧分单或撤消容器中还是否存在数据
 
-        console.log(variable.dishOrderSplit)
         if(!variable.dishOrderSplit.splitList.length){
 
 

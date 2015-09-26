@@ -18,12 +18,15 @@ define(['jquery','variable','mixin','initialization'],function($, variable,mixin
         var dataKey = $this.attr('data-key');
         switch (dataKey){
             case '0':case '1':case '2': case '3': case '4':case '5':case '6':case '7':case '8':case '9':
-                var calcVal = $calculatorEnter.val()+dataKey;
+
+                var calcVal = $calculatorEnter.val() + dataKey;
+
                 $calculatorEnter.val(calcVal);
 
                 // 设置状态如果当处于无状态或下单状态 则将计算器在点击数字时设置为查询状态
                 if(variable.operateStatus == 'addOrder' || variable.operateStatus == ''){
                     variable.operateStatus = 'dishQuery';
+
                 }
 
                 if(variable.operateStatus == 'changeTable'){
@@ -50,9 +53,17 @@ define(['jquery','variable','mixin','initialization'],function($, variable,mixin
                 }else if(variable.operateStatus == 'dishQuery'){
                     variable.$calculatorSubmit.attr('data-status','confirm').text(variable.calculatorText.confirm);
 
+
                     // 参数为菜品ID
-                    var dishNumber = calcVal.split('×')[0];
-                    dishQueryNum = calcVal.split('×')[1];
+                    var dishNumber = '';
+                    if(calcVal.split('×').length >1){
+                        dishQueryNum = calcVal.split('×')[0];
+                        dishNumber = calcVal.split('×')[1];
+                    }else{
+                        dishQueryNum = 1;
+                        dishNumber = calcVal.split('×')[0];
+                    }
+
                     $.post(variable.dishesQueryUrl,{dishesId:dishNumber},function(data){
 
                         var data = {
@@ -78,6 +89,7 @@ define(['jquery','variable','mixin','initialization'],function($, variable,mixin
                 console.log(variable.operateStatus);
                 break
             case 'AC':
+
                 $calculatorEnter.val('');
                 $calculatorStatus.text(variable.calculatorText[variable.operateStatus]);
 
@@ -121,7 +133,23 @@ define(['jquery','variable','mixin','initialization'],function($, variable,mixin
                 }
                 break;
             case 'times':  //×
-                var times = $calculatorEnter.val() ? '×': '1×';
+                var times = '';
+                var enterVal = $calculatorEnter.val();
+
+                if(parseInt(enterVal) > 100){
+                    $calculatorStatus.text('份数不能大于100');
+                }
+                if(enterVal){
+                    if(enterVal.indexOf('×') > -1){
+                        times = '';
+                    }else{
+                        times = '×';
+                    }
+                }else{
+                    times = '1×'
+                }
+
+
                 $calculatorEnter.val($calculatorEnter.val()+times);
                 break;
             case 'decimal':  //小数点
@@ -147,10 +175,31 @@ define(['jquery','variable','mixin','initialization'],function($, variable,mixin
                     var istogo    = variable.isToGo ? 1 : 0;
                     var dishCount = dishQueryData.dishCount;
                     var dishName  = dishQueryData.name;
-                     mixin.addOrder(dishName, dishId, price, istogo, dishCount, dishQueryNum); // 添加菜品
 
-                    $calculatorEnter.val('');
-                    $calculatorStatus.text(variable.calculatorText.addOrder);
+
+                    if(dishQueryNum > 100){
+                        alert('份数大于上限100,请重新下单！');
+
+                        $calculatorEnter.val('');
+                        $calculatorStatus.text(variable.calculatorText[variable.operateStatus]);
+
+                        if(variable.operateStatus == 'dishQuery'){
+                            if(variable.dishOther.dishs.length){
+                                variable.operateStatus = 'addOrder';
+                                variable.$calculatorSubmit.attr('data-status','print').text(variable.calculatorText.print);
+                            }else{
+                                variable.$calculatorSubmit.attr('data-status','confirm').text(variable.calculatorText.confirm);
+                                variable.operateStatus = '';
+                            }
+                        }
+
+                    }else{
+                        mixin.addOrder(dishName, dishId, price, istogo, dishCount, dishQueryNum); // 添加菜品
+
+                        $calculatorEnter.val('');
+                        $calculatorStatus.text(variable.calculatorText.addOrder);
+                    }
+
 
                 }else{
                     alert('未查询到数据');
@@ -267,13 +316,24 @@ define(['jquery','variable','mixin','initialization'],function($, variable,mixin
             case 'tip': // 添加小费
                 var tip = parseFloat(variable.$calculatorEnter.val());
                 if(tip){
-                    variable.$selectedDishes.find('span.tip').children('em').text(tip.toFixed(2));
+                    variable.tip = tip;
+
+                    alert(variable.lastSingleStatus)
+
+                    if(variable.lastSingleStatus == 'single'){
+                        variable.$selectedDishes.find('span.tip').children('em').text('0.00');
+                        variable.$orderConf.find('span.tip').children('em').text(tip);
+
+                    }else{
+                        variable.$selectedDishes.find('span.tip').children('em').text(tip.toFixed(2));
+                    }
+
 
                     // 更新总价
-                    var $targetTotal = variable.$selectedDishes.find('span.total').children('b');
+                    /*var $targetTotal = variable.$selectedDishes.find('span.total').children('b');
                     var total = parseFloat(variable.selectedDishesTotal) + tip;
                     $targetTotal.text(total);
-                    variable.selectedDishesTotal = total;
+                    variable.selectedDishesTotal = total;*/
 
                     // 还原状态
                     initialization.calculatorInit();

@@ -11,63 +11,65 @@
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
-<body>
+<body style="overflow:scroll;overflow-y:hidden;overflow-x:hidden">
 <section class="page-content">
     <div class="order-set">
         <div class="order-list" id="selected-dishes">
             <div class="total-order clearfix">
                 <span class="total-name">餐桌总额：</span>
-                <span class="tip">(小费：<em>0.00</em>)</span>
-                <span class="total"><b>508.00</b><i class="fa fa-euro fa-fw"></i></span>
+                <span class="tip">(小费：<em>0.00</em><i>€</i>)</span>
+                <span class="total"><b>508.00</b><i>€</i></span>
             </div>
             <table class="table-list"><tbody></tbody></table>
         </div>
-        <div class="order-conf" id="order-conf">
-
-            <!--<ul class="food-list" id="food-category">
-                <li>
-                    <i class="fa fa-glass"></i>
-                    <em>name</em>
-                </li>
-            </ul>-->
-            <!--<ul class="food-list">
-                <li>
-                    <i class="fa fa-glass"></i>
-                    <em>name</em>
-                </li>
-                <li>
-                    <i class="fa fa-beer"></i>
-                    <em>name</em>
-                </li>
-                <li>
-                    <i class="fa fa-cutlery"></i>
-                    <em>name</em>
-                </li>
-                <li>
-                    <i class="fa fa-coffee"></i>
-                    <em>name</em>
-                </li>
-            </ul>-->
-            <!--<div class="menu-single">
-                &lt;!&ndash; menu-single menu-undo : 分单 和 撤销菜单&ndash;&gt;
-                <div class="total-order clearfix">
-                    <span class="total-name">已选总额：</span>
-                    &lt;!&ndash;  <span class="tip">(小费：<em>0.00</em>)</span>&ndash;&gt;
-                    <span class="total">508.00<i class="fa fa-euro fa-fw"></i></span>
-                </div>
-                <table class="table-list">
-                    <tbody>
-                        <tr data-food-id="1003">
-                            <td>1</td>
-                            <td>1003</td>
-                            <td>noodles </td>
-                            <td>是</td>
-                            <td>36.00<i class="fa fa-euro fa-fw"></i></td>
-                            <td>36.00<i class="fa fa-euro fa-fw"></i></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>-->
+        <div class="order-center" id="order-center">
+            <!--<div class="Oder-pai">餐牌</div>-->
+            <div class="order-conf" id="order-conf">
+                <!--<ul class="food-list" id="food-category">
+                    <li>
+                        <i class="fa fa-glass"></i>
+                        <em>name</em>
+                    </li>
+                </ul>-->
+                <!--<ul class="food-list">
+                    <li>
+                        <i class="fa fa-glass"></i>
+                        <em>name</em>
+                    </li>
+                    <li>
+                        <i class="fa fa-beer"></i>
+                        <em>name</em>
+                    </li>
+                    <li>
+                        <i class="fa fa-cutlery"></i>
+                        <em>name</em>
+                    </li>
+                    <li>
+                        <i class="fa fa-coffee"></i>
+                        <em>name</em>
+                    </li>
+                </ul>-->
+                <!--<div class="menu-single">
+                    &lt;!&ndash; menu-single menu-undo : 分单 和 撤销菜单&ndash;&gt;
+                    <div class="total-order clearfix">
+                        <span class="total-name">已选总额：</span>
+                        &lt;!&ndash;  <span class="tip">(小费：<em>0.00</em>)</span>&ndash;&gt;
+                        <span class="total">508.00<i class="fa fa-euro fa-fw"></i></span>
+                    </div>
+                    <table class="table-list">
+                        <tbody>
+                            <tr data-food-id="1003">
+                                <td>1</td>
+                                <td>1003</td>
+                                <td>noodles </td>
+                                <td>是</td>
+                                <td>36.00<i class="fa fa-euro fa-fw"></i></td>
+                                <td>36.00<i class="fa fa-euro fa-fw"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>-->
+            </div>
         </div>
     </div>
     <ul class="preelect" id="preelect">
@@ -84,9 +86,9 @@
 </section>
 <section class="page-side">
     <div class="func-box">
-        <ul class="breadcrumb">
-            <li><a href="#">Home</a></li>
-            <li>2号餐桌</li>
+        <ul class="homeTitle clearfix">
+            <li><a href="javascript:void(0)">Home</a>&nbsp;&nbsp;&gt;&nbsp;&nbsp;</li>
+            <span>2号餐桌</span>
         </ul>
         <ul class="func-set clearfix" id="func-set">
             <li data-key="changeTable">换桌</li>
@@ -99,7 +101,9 @@
             <li data-key="printInvoices">打印发票</li>
             <li data-key="printCompanyInvoice">打印公司发票</li>
         </ul>
-        <button type="button" class="btn-set" id="func-set-btn" data-key="back">Back</button>
+
+        <div class="backBut"><button type="button" class="btn-set" id="func-set-btn" data-key="back">Back</button></div>
+
         <ul class="payment clearfix" id="payment-way">
             <li data-key="0" class="active"><a href="#" title="Cash"><i class="fa fa-money"></i><b>Cash</b></a></li>
             <li data-key="1"><a href="#" title="Master"><i class="fa fa-thumbs-up"></i><b>Master</b></a></li>
@@ -126,13 +130,13 @@
                     <td data-key="4">4</td>
                     <td data-key="5">5</td>
                     <td data-key="6">6</td>
-                    <td data-key="times" id="calcTimes">×</td>
+                    <td data-key="times" id="calcTimes">X</td>
                 </tr>
                 <tr>
                     <td data-key="1">1</td>
                     <td data-key="2">2</td>
                     <td data-key="3">3</td>
-                    <td data-key="submit" data-status="addOrder" rowspan="2" class="btn-confirm" id="calcBtn">确定</td>
+                    <td data-key="submit" data-status="addOrder" rowspan="2" class="btn-confirm" id="calcBtn">OK</td>
                 </tr>
                 <tr>
                     <!--<td data-key="tip">€</td>

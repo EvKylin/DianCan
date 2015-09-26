@@ -32,7 +32,7 @@ define(['jquery','variable','mixin'],function($, variable, mixin){
 
                 mixin.addDishAttr({attr:extraId});
 
-                attrArr = []; // 属性添加完成后置空属性集合
+                attrArr = []; // 属性添加完成后置空属性集合.
                 returnAddDish()
             }
 
@@ -40,16 +40,19 @@ define(['jquery','variable','mixin'],function($, variable, mixin){
             // 返回到上次操作
             returnAddDish()
         }
+
     });
 
 
 
     function returnAddDish(){
-        var foodCategory= $('<ul>',{'class':'food-list','id':'foodDetail'});
-        $.each(variable.oldCategoryData, function(xxIndex,breed){
-            foodCategory.append( '<li id="'+breed.id+'" class="food-'+variable.categoryBgColor[variable.categoryStatus]+'"><i class="fa fa-'+variable.categoryIcon[variable.categoryStatus]+'"></i> <em>'+breed.name+'</em><span class="food-detail"><b class="food-price">'+ breed.price +'</b> | <b class="food-discount">'+ breed.stock +'</b></span></li>');
-        });
-        variable.$orderConf.append(foodCategory);
+        if(variable.oldCategoryData){
+            var foodCategory= $('<ul>',{'class':'food-list','id':'foodDetail'});
+            $.each(variable.oldCategoryData, function(xxIndex,breed){
+                foodCategory.append( '<li id="'+breed.id+'" class="food-'+variable.categoryBgColor[variable.categoryStatus]+'"><i class="fa fa-'+variable.categoryIcon[variable.categoryStatus]+'"></i> <em>'+breed.name+'</em><span class="food-detail"><b class="food-price">'+ breed.price +'</b> | <b class="food-discount">'+ breed.stock +'</b></span></li>');
+            });
+            variable.$orderConf.append(foodCategory);
+        }
 
         variable.$orderConf.find('#dishAttribute').remove();
         variable.$funcSet.find('li:lt(6)').removeClass('active');

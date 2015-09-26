@@ -1,12 +1,29 @@
 define(['variable'],function(variable){
     'use strict';
     // 创建分单与撤消菜单DOM窗口
-    function createSingleCase(isSingle){
-       var html =  '<div class="menu-group '+(isSingle ? 'menu-single' : 'menu-undo')+'">'+
+    function createSingleCase(isSingle, operateStatus){
+        //  分单 撤销  还桌
+        var splitType = '';
+        var menuStyle = '';
+
+        if(operateStatus == 'single'){
+            splitType = '分单';
+            menuStyle = 'menu-single';
+        }else if(operateStatus == 'changeTable'){
+            splitType = '换桌';
+            menuStyle = 'menu-changeTab';
+        }else if(operateStatus == 'cancelMenu'){
+            splitType = '撤销';
+            menuStyle = 'menu-undo';
+        }
+
+       var html =  '<div class="menu-group '+ menuStyle +'">'+
             <!-- menu-single menu-undo : 分单 和 撤销菜单-->
         '<div class="total-order clearfix">'+
-        '<span class="total-name">已选总额：</span>'+
-        '<!--  <span class="tip">(小费：<em>0.00</em>)</span>-->'+
+        '<span class="total-name">'+ splitType +'总额:</span>'+
+
+           ((operateStatus == 'single') ? '<span class="tip">(小费：<em>0.00</em><i>'+ variable.currencySymbol +'</i>)</span>' : '') +
+
         '<span class="total"><b>0.00</b><i class="fa fa-euro fa-fw"></i></span>'+
         '</div>'+
         '<table class="table-list">'+
@@ -39,16 +56,18 @@ define(['variable'],function(variable){
     // 中间菜品分类初始化
     function dishesCategory(){
         var foodCategory= $('<ul>',{'class':'food-list','id':'foodCategory'});
+        var oderPai = $('<div>',{'class':'Oder-pai'}).text('餐牌');
         $.each(variable.foodList, function(index, category){
             foodCategory.append( '<li id="'+category.id+'" class="food-'+variable.categoryBgColor[index]+'"><i class="fa fa-'+variable.categoryIcon[index]+'"></i> <em>'+category.name+'</em></li>');
         });
-        variable.$orderConf.empty().append(foodCategory);
+        //variable.$orderConf.empty().append(oderPai);
+        variable.$orderConf.empty().append(oderPai,foodCategory);
     }
 
     // 换桌 初始化
     function changeTable(tableNumber){
         var html = '<div class="change-table">'+
-            '<div class="changeTab-title">餐桌已换到'+tableNumber+'号</div>'+
+            '<div class="changeTab-title">确定换到'+tableNumber+'号</div>'+
             '</div>';
         variable.$orderConf.empty().append(html);
     }

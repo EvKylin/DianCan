@@ -1,6 +1,34 @@
+/* CSS Document */
+body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,td,img,div,dl,dt,dd,input{ margin:0; padding:0;}
+body{ font-size:12px;background-color:#FFF;font:12px "Microsoft YaHei","SimSun","Arial"," Helvetica", sans-serif;/*Microsoft YaHei*/}
+::selection { background-color: transparent;}
+img{ border:none;}
+li{ list-style:none;}
+input,select,textarea{ outline:none; border:none; background:none;}
+/*outline 轮廓*/
+textarea{ resize:none;}
+/*resize 缩放*/
+a{ text-decoration:none; color:#656565;}
+a:hover{ text-decoration:none;}
+/*清楚浮动*/
+.clearfix:after{ content:""; display:block; clear:both;}
+.clearfix{ zoom:1;}
+/*  zoom:1; IE浏览器的专有属性*/
+ul{ list-style: none;}
+img{ border: none;}
+.fl{ float:left;}
+.fr{ float:right;}
+.hide{ display:none;}
+.show{ display:block;}
+i,em{ font-style:normal;}
+
+
+
+
 html,body{
     height: 100%;
 }
+ul{ list-style: none;}
 
 .page-content,.page-side{
     height: inherit;
@@ -17,7 +45,6 @@ html,body{
 .page-side{
     width: 25%;
     background: #444;
-    padding: 10px;
 }
 
 .order-set{
@@ -27,7 +54,7 @@ html,body{
 
 }
 
-.order-list,.order-conf{
+.order-list,.order-center{
     width: 50%;
     height: 100%;
     background: #f5f5f5;
@@ -48,7 +75,8 @@ html,body{
     font-size: 14px;
 }
 .table-list > tbody >tr>td{
-    padding:6px 12px;
+    font-size: 14px;
+    padding:15px 12px;
 }
 .table-list > tbody >tr>td:last-child{
     text-align: right;
@@ -58,7 +86,7 @@ html,body{
     background: #fff;
 }
 
-.table-list > tbody >tr:hover{
+.table-list > tbody >tr:active{
     cursor: pointer;
     background: #8cc63e;
     color: #fff;
@@ -67,11 +95,16 @@ html,body{
 
 .total-order{
     border-bottom:1px solid #ddd;
-    padding: 12px 12px;
+    padding: 15px 12px;
     font-size: 16px;
 }
 .total-order span{
     float: left;
+}
+.total-order span i{
+    font-style: normal;
+    font-weight: 500;
+    margin-left: 5px;
 }
 
 .total-order .total{
@@ -94,6 +127,9 @@ html,body{
     background: #8cc63f;
     color: #fff;
 }
+.menu-single .total-order .tip{
+    color: #fff;
+}
 
 .menu-single .table-list > tbody >tr:nth-child(2n+1){
     background: #eefac8;
@@ -101,7 +137,7 @@ html,body{
 .menu-single .table-list > tbody >tr:nth-child(2n){
     background: #fff;
 }
-.menu-single .table-list > tbody >tr:hover{
+.menu-single .table-list > tbody >tr:active{
     background: #f7951e;
     color: #fff;
     transition: all .2s;
@@ -124,7 +160,31 @@ html,body{
 .menu-undo .table-list > tbody >tr:nth-child(2n){
     background: #fff;
 }
-.menu-undo .table-list > tbody >tr:hover{
+.menu-undo .table-list > tbody >tr:active{
+    background: #f7951e;
+    color: #fff;
+    transition: all .2s;
+}
+
+/* 换桌 */
+.menu-changeTab{
+}
+
+.menu-changeTab .total-order{
+    background: #f5f5f5;
+    color: #666;
+}
+.menu-changeTab .total-order .tip{
+    color: #fff;
+}
+
+.menu-changeTab .table-list > tbody >tr:nth-child(2n+1){
+    background: #eefac8;
+}
+.menu-changeTab .table-list > tbody >tr:nth-child(2n){
+    background: #fff;
+}
+.menu-changeTab .table-list > tbody >tr:active{
     background: #f7951e;
     color: #fff;
     transition: all .2s;
@@ -161,7 +221,7 @@ html,body{
     font-weight: normal;
     display: block;
 }
-.payment li a:hover,.payment li a:active{
+.payment li a:active{
 
     background: linear-gradient(#1A1A1A, #494949);
 }
@@ -171,28 +231,33 @@ html,body{
 
 .func-box{
     height: inherit;
-    margin-bottom: -287px;
+    margin-bottom: -418px;
 }
 .func-set{
-    padding: 0;
+    padding: 0px  7px 0px 10px;
     list-style: none;
-    border-top: 1px solid #626262;
-    border-right: 1px solid #626262; color: #FFF;
+    color: #FFF;
+    margin-bottom: 10px;
 }
 
 .func-set li{
     float: left;
     width: 33.33%;
-    color:#fff;
-    border-left: 1px solid #626262;
-    border-bottom: 1px solid #626262; color: #FFF;
+    color:#9c9c9c;
+    border:1px solid #626262;
+    margin-top:-1px;
+    margin-left:-1px;
+    font-size:15px;
+    font-family: 'PT Sans', Tahoma;
     background:  linear-gradient( #494949, #1A1A1A);
     text-align: center;
-    padding: 15px 0;
+    padding: 18px 0;
     cursor: pointer;
     transition: all .2s;
+    white-space: nowrap;
+    overflow: hidden;
 }
-.func-set li:hover,.func-set li.active{
+.func-set li.active{
     background:  #000;
 }
 
@@ -200,10 +265,12 @@ html,body{
     width: 100%;
     background: #f7951e;
     color: #312a2a;
+    font-size: 18px;
     border: none;
-    padding: 10px ;
+    padding: 15px ;
+    outline: none;
 }
-.btn-set:hover{
+.btn-set:active{
     background: #f28909;
     color: #fff;
 }
@@ -211,6 +278,7 @@ html,body{
 .calculator{
     position: relative;
     z-index: 3;
+    padding: 0px 10px 10px 10px;
 }
 .calculator-table{
     width: 100%;
@@ -221,9 +289,9 @@ html,body{
     text-align: right;
     width: 100%;
     border:none;
-    outline: none;
-    font-size: 18px;
-    height: 30px;
+    outline: none; padding-right: 10px;
+    font-size: 35px;
+    height: 50px;
 }
 .calculator-output{
     background: #fff;
@@ -246,29 +314,37 @@ html,body{
 }
 .calculator-icon-percent:before{
     content: '%';
+    font-size: 24px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 50px;
 }
 .calculator-icon-money{
     padding-right: 10px;
 }
 .calculator-icon-money:before{
     content: '€';
+    font-family: 'PT Sans', Tahoma;
+    font-size: 24px;
+    line-height: 50px;
 }
 
 .calculator-status{
-    height: 22px;
-    font-size: 14px;
-    color: #999;
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    color: #666;
 }
 .calculator-table > tbody >tr >td{
     width: 25%;
     color: #fff;
     text-align: center;
-    padding: 15px 0;
+    padding: 27px 0;
+    font-size:20px;
     border:1px solid #626262;
     background:  linear-gradient( #494949, #1A1A1A);
     cursor: pointer;
 }
-.calculator-table > tbody >tr >td:hover,.calculator-table > tbody >tr >td.active{
+.calculator-table > tbody >tr >td:active,.calculator-table > tbody >tr >td.active{
     background: #000;
 }
 .calculator-table > tbody >tr >td.disabled{
@@ -286,13 +362,11 @@ html,body{
 
 .food-list{
     list-style: none;
-    padding: 4px;
+    border-top: 1px solid #FFF;
     margin: 0;
-    border-top:1px solid #fff;
 }
 .food-list:first-child{
     border-top:none;
-    border-bottom: 1px solid #ddd;
 }
 .food-list:after{
     content: '';
@@ -302,40 +376,56 @@ html,body{
 
 .food-list >li {
     float: left;
-    width: 96px;
-    height: 96px;
+    width: 90px;
+    height: 90px;
     border-radius: 8px;
     text-align: center;
     color: #fff;
     padding: 8px;
-    margin: 4px;
+    margin: 2px;
     cursor: pointer;
 }
-.food-list >li:hover{
+.food-list >li:active{
     opacity: .85;
     transition: all .2s;
 }
 .food-list >li>i{
     font-size: 30px;
-    margin: 10px 0 5px;
+    margin: 5px 0 5px;
+    line-height: 1em;
 }
 .food-list >li >em{
     display: block;
     font-style: normal;
+    height: 20px;
+    font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;;
+}
+.food-list >li > .food-detail{
+    display: block;;
+    font-size: 14px;
+    line-height: 1em;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #FFF;
 }
 .food-list >li > .food-detail >b{
+    display: inline-block;
     font-weight: normal;
     font-size: 12px;
+    line-height: 0.8em;
+    color: #FFF;
 }
 
 .food-list > .food-blue,.preelect .preelect-blue{
     background:#223a78;
 }
 .food-list > .food-red,.preelect .preelect-red{
-    background:#e52230;
+    background:#C51F2B;
 }
 .food-list > .food-yellow,.preelect .preelect-yellow{
-    background:#ef9825;
+    background:#EA992D;
 }
 .food-list > .food-green,.preelect .preelect-green{
     background:#28a047;
@@ -352,8 +442,8 @@ html,body{
     list-style: none;
 }
 .preelect .preelect-list{
-    width: 96px;
-    height: 96px;
+    width: 90px;
+    height: 90px;
    /* background: #e52230;*/
     border-radius: 8px;
     margin: 10px 0px 10px 10px;
@@ -397,6 +487,9 @@ html,body{
 
 .preelect-info{
     padding: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 13px;
 }
 
 
@@ -405,40 +498,73 @@ html,body{
 .change-table{}
 .change-table .changeTab-title{
     background: #8cc63f;
-    text-align: center;
+    text-align: left;
     color: #fff;
-    padding: 6px 12px;
+    font-size: 16px;
+    padding: 15px 12px;
 }
 
 /* 菜品属性 */
 .dishes-attribute{
     list-style: none;
-    padding: 7px;
     margin: 0;
 }
 .dishes-attribute li{
     float: left;
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
     background: #7d151e;
     color: #fff;
     border-radius: 8px;
-    margin: 1px;
+    margin: 2px;
     text-align: center;
     padding: 8px;
     overflow: hidden;
     cursor: pointer;
 }
+.dishes-attribute li b{ padding-top: 18px;}
 .dishes-attribute li b,.dishes-attribute li em{
     font-style: normal;
     font-weight: normal;
     display: block;
-    font-size: 12px;
+    font-size: 14px;
 }
 .dishes-attribute li.active{
     background: #3ab85f;
 }
 .dishes-attribute li.attr-btn{
     background: #28a047;
-    line-height: 64px;
+    line-height: 75px;
+    font-size: 18px;
 }
+
+
+
+
+/*New Add*/
+/*餐牌背景颜色调整*/
+#foodBreed .food-blue{ background-color:#385398;}
+#foodDetail .food-blue{ background-color:#415CA2;}
+#foodBreed .food-red{ background-color:#DE3340;}
+#foodDetail .food-red{ background-color:#D0323E;}
+#foodBreed .food-green{ background-color:#3CA758;}
+#foodDetail .food-green{ background-color:#4BB567;}
+#foodBreed .food-yellow{ background-color:#F5A133;}
+#foodDetail .food-yellow{ background-color:#F5A439;}
+
+div.Home-item{ width:25%; float:left; overflow:hidden; background-color:#444;}
+div.Home-page{  height: 49px; background-color: #252525; font: 16px/49px '微软雅黑';color: #FFF;}
+div.Home-page a{ display: block; font: 18px/49px '微软雅黑'; margin-left: 10px; color: #FFF; padding: 0 25px; height: 49px; background-color: #f7931e; float: left; text-decoration:none;}
+div.Home-page em{ font-style:normal;}
+
+div.page-right-item{ width:100%;padding: 10px; height:inherit;}
+div.Oder-pai{ width:100%; height:49px; border-bottom:1px solid #ddd;font: 16px/49px '微软雅黑'; text-indent:1em;}
+ul.homeTitle{ width:100%; height:48px;background-color:#000; margin-bottom: 10px;}
+ul.homeTitle li{ float:left; color:#FFF; line-height:48px; margin-left:10px; font-size: 18px;}
+ul.homeTitle li a{ padding:0 30px;color:#FFF; background-color:#f7931e;display: inline-block; font-size:18px;text-decoration: none; }
+ul.homeTitle span{ display:block; float:left; line-height:48px; padding-left:10px;color:#FFF; font-size: 15px;}
+#loading img{width:50px; height:50px; margin-left:35%;}
+div.backBut{ padding:0px 10px;}
+
+
+

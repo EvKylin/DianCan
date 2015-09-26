@@ -36,6 +36,8 @@ define(['jquery','variable','initialization'],function($, variable,initializatio
             $this.toggleClass('active').siblings(':lt(5)').removeClass('active');
             initialization.calculatorInit();  // 计算器部分初始化
 
+            variable.changeTableNumber = '';
+
             /**
              * 是否处于分单与摊销菜单状态，如果处于该状态 则判断最近一次操作分单或撤消菜品的状态是否存在
              * 如果该状态不存在添加最近一次的分单或撤消菜品状态为当前状态
@@ -101,15 +103,17 @@ define(['jquery','variable','initialization'],function($, variable,initializatio
                         $calculatorTdChange.addClass('disabled');
                         $calculatorTimes.addClass('disabled');
                         $calculatorDecimal.addClass('disabled');
+                        variable.$preelect.empty();  // 清空预览列表
                         break;
                     case 'cancelMenu':
+                        variable.$preelect.empty();  // 清空预览列表
                         variable.$calculatorTable.find('td:not([data-key="submit"])').addClass('disabled');
 
                         if(variable.isSingle){
                             variable.isSingle = false;
                             // 创建撤销菜单
                             if(variable.$menuMan == null && variable.isSingle == false){
-                                variable.$menuMan = initialization.createSingleCase(variable.isSingle);  // 创建撤销菜单容器
+                                variable.$menuMan = initialization.createSingleCase(variable.isSingle, variable.operateStatus);  // 创建撤销菜单容器
                                 variable.$orderConf.empty().append(variable.$menuMan);
                             }else{
                                 variable.$orderConf.empty().append(variable.$menuMan);
@@ -122,6 +126,7 @@ define(['jquery','variable','initialization'],function($, variable,initializatio
 
                         break;
                     case 'cancelTable':
+                        variable.$preelect.empty();  // 清空预览列表
                         console.log(new Date()+' : ' + dataKey);
                         break;
                     case 'discount':
@@ -134,6 +139,7 @@ define(['jquery','variable','initialization'],function($, variable,initializatio
                         $calculatorIcon.addClass('calculator-icon calculator-icon-percent');
                         break;
                     case 'tip':
+                        variable.$preelect.empty();  // 清空预览列表
                         $calculatorTdChange.addClass('active').attr('data-key','tip').text('€');
                         $calculatorTimes.addClass('disabled');
                         $calculatorDecimal.removeClass('disabled');
@@ -144,7 +150,6 @@ define(['jquery','variable','initialization'],function($, variable,initializatio
                         break;
                     case 'dishesAttribute':
                         // 如果不存在在菜品订单 则还原到下单状态
-
                         if(variable.oldDishKey == ''){
                             variable.operateStatus = '';
                             variable.$funcSet.find('li:lt(6)').removeClass('active');
