@@ -18,7 +18,7 @@ define(['jquery','variable','mixin','initialization'],function($, variable, mixi
                 }
 
                 // 记录当前所操作分类状态 后续状态背景颜色要用
-                variable.categoryStatus = $(this).index(); //暂用索引代替
+                //variable.categoryStatus = $(this).index(); //暂用索引代替
 
                 variable.$orderConf.find('#foodBreed').remove();
                 variable.$orderConf.find('#foodDetail').remove();
@@ -28,7 +28,7 @@ define(['jquery','variable','mixin','initialization'],function($, variable, mixi
                     if(item.id == thisID){
                         var foodCategory= $('<ul>',{'class':'food-list','id':'foodBreed'});
                         $.each(item.child, function(breedIndex,breed){
-                            foodCategory.append( '<li id="'+breed.id+'" class="food-'+variable.categoryBgColor[index]+'"><i class="fa fa-'+variable.categoryIcon[index]+'"></i> <em>'+breed.name+'</em></li>');
+                            foodCategory.append( '<li id="'+breed.id+'" class="food-'+breed.categoryBgColor+'"><i class="fa fa-'+breed.categoryIcon+'"></i> <em>'+breed.name+'</em></li>');
                         });
                         variable.$orderConf.append(foodCategory);
                     }
@@ -48,7 +48,7 @@ define(['jquery','variable','mixin','initialization'],function($, variable, mixi
 
                             variable.oldCategoryData = item.child;
                             $.each(item.child, function(xxIndex,breed){
-                                foodCategory.append( '<li id="'+breed.id+'" class="food-'+variable.categoryBgColor[index]+'"><i class="fa fa-'+variable.categoryIcon[index]+'"></i> <em>'+breed.name+'</em><span class="food-detail"><b class="food-price">'+ breed.price +'</b> | <b class="food-discount">'+ breed.stock +'</b></span></li>');
+                                foodCategory.append( '<li id="'+breed.id+'" class="food-'+breed.categoryBgColor+'"><i class="fa fa-'+breed.categoryIcon+'"></i> <em>'+breed.name+'</em><span class="food-detail"><b class="food-price">'+ breed.price +'</b> | <b class="food-discount">'+ breed.stock +'</b></span></li>');
                             });
                             variable.$orderConf.append(foodCategory);
                         }
@@ -62,8 +62,11 @@ define(['jquery','variable','mixin','initialization'],function($, variable, mixi
                 var istogo    = variable.isToGo ? 1 : 0;
                 var dishCount = $(this).find(".food-discount").html();
                 var dishName  = $(this).find('em').html();
-                mixin.addOrder(dishName, dishId, price, istogo, dishCount); // 添加菜品
+                var categoryBgColor = $(this).attr('class').split('-')[1];
+                var categoryIcon = $(this).find('i.fa').attr('class').split(' ')[1].split('-')[1];
 
+                variable.preelectStyle = [categoryBgColor,categoryIcon];
+                mixin.addOrder(dishName, dishId, price, istogo, dishCount); // 添加菜品
                 variable.$calculatorStatus.text(variable.calculatorText.addOrder);
                 break;
         }

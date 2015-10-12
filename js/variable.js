@@ -64,9 +64,10 @@ define(['jquery','utilities'],function($,utilities){
         currentDishNum      : "",
         oldDishKey          : "",                          // 记录上次选中的菜品
         dishOther           : new utilities.DishClass(),  // 构建的菜品对象
-        categoryIcon        : ['glass','beer','coffee','cutlery'],      // 菜品分类图标，字符表示以fa-为开头的类名
-        categoryBgColor     : ['blue','red','green','yellow'],          // 菜品分类背景颜色,字符表示以food-为开头的类名
-        categoryStatus      : 0,                                        // 记录当前操作菜品分类
+        //categoryIcon        : ['glass','beer','coffee','cutlery'],      // 菜品分类图标，字符表示以fa-为开头的类名
+        //categoryBgColor     : ['blue','red','green','yellow'],          // 菜品分类背景颜色,字符表示以food-为开头的类名
+        //categoryStatus      : 0,                                        // 记录当前操作菜品分类
+        preelectStyle         : [],
         oldCategoryData     : '',                                       // 记录上次点餐分类菜品
         orderForm : [
             {
@@ -111,10 +112,14 @@ define(['jquery','utilities'],function($,utilities){
             {
                 id: 1001,
                 name: '酒水',
+                categoryIcon:'glass',
+                categoryBgColor: 'blue',
                 child:[
                     {
                         id:10011,
                         name:'白酒',
+                        categoryIcon:'glass',
+                        categoryBgColor: 'blue',
                         child:[
                             {
                                 id: 100111,
@@ -124,7 +129,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'glass',
+                                categoryBgColor: 'blue',
                             },
                             {
                                 id: 100112,
@@ -134,7 +141,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'glass',
+                                categoryBgColor: 'blue',
                             },
                             {
                                 id: 100113,
@@ -144,7 +153,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'glass',
+                                categoryBgColor: 'blue',
                             },
                             {
                                 id: 100114,
@@ -154,7 +165,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'glass',
+                                categoryBgColor: 'blue',
                             },
                             {
                                 id: 100115,
@@ -164,7 +177,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'glass',
+                                categoryBgColor: 'blue',
                             },
                             {
                                 id: 100116,
@@ -174,13 +189,17 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'glass',
+                                categoryBgColor: 'blue',
                             }
                         ]
                     },
                     {
                         id:10012,
                         name:'红酒',
+                        categoryIcon:'glass',
+                        categoryBgColor: 'blue',
                         child:[
                             {
                                 id: 100121,
@@ -190,7 +209,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'glass',
+                                categoryBgColor: 'blue'
                             },
                             {
                                 id: 100122,
@@ -200,7 +221,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'法国',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'glass',
+                                categoryBgColor: 'blue'
                             },
                             {
                                 id: 100123,
@@ -210,7 +233,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'法国',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'glass',
+                                categoryBgColor: 'blue'
                             },
                             {
                                 id: 100124,
@@ -220,7 +245,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'法国',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'glass',
+                                categoryBgColor: 'blue'
                             },
                             {
                                 id: 100125,
@@ -230,7 +257,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'法国',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'glass',
+                                categoryBgColor: 'blue'
                             },
                             {
                                 id: 100126,
@@ -240,13 +269,17 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'法国',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'glass',
+                                categoryBgColor: 'blue'
                             }
                         ]
                     },
                     {
                         id:10013,
                         name:'洋酒',
+                        categoryIcon:'glass',
+                        categoryBgColor: 'blue',
                         child:[
                             {
                                 id: 100131,
@@ -256,7 +289,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'glass',
+                                categoryBgColor: 'blue'
                             },
                             {
                                 id: 1001132,
@@ -266,7 +301,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'glass',
+                                categoryBgColor: 'blue'
                             },
                             {
                                 id: 100133,
@@ -276,7 +313,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'glass',
+                                categoryBgColor: 'blue'
                             },
                             {
                                 id: 100134,
@@ -286,7 +325,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'glass',
+                                categoryBgColor: 'blue'
                             },
                             {
                                 id: 100135,
@@ -296,7 +337,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'glass',
+                                categoryBgColor: 'blue'
                             },
                             {
                                 id: 100136,
@@ -306,13 +349,17 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'glass',
+                                categoryBgColor: 'blue'
                             }
                         ]
                     },
                     {
                         id:10014,
                         name:'黄酒',
+                        categoryIcon:'glass',
+                        categoryBgColor: 'blue',
                         child:[                            {
                             id: 100141,
                             name:'顶珠',
@@ -321,7 +368,9 @@ define(['jquery','utilities'],function($,utilities){
                             area :'四川',
                             date:'2011/12/12',
                             variety:'',
-                            stock: '123'
+                            stock: '123',
+                            categoryIcon:'glass',
+                            categoryBgColor: 'blue'
                         },
                             {
                                 id: 100142,
@@ -331,7 +380,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'glass',
+                                categoryBgColor: 'blue'
                             },
                             {
                                 id: 100143,
@@ -341,7 +392,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'glass',
+                                categoryBgColor: 'blue'
                             },
                             {
                                 id: 100144,
@@ -351,7 +404,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'glass',
+                                categoryBgColor: 'blue'
                             },
                             {
                                 id: 100145,
@@ -361,7 +416,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'glass',
+                                categoryBgColor: 'blue'
                             },
                             {
                                 id: 100146,
@@ -371,12 +428,16 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'glass',
+                                categoryBgColor: 'blue'
                             }]
                     },
                     {
                         id:10015,
                         name:'啤酒',
+                        categoryIcon:'glass',
+                        categoryBgColor: 'blue',
                         child:[                            {
                             id: 100151,
                             name:'格式化',
@@ -385,7 +446,9 @@ define(['jquery','utilities'],function($,utilities){
                             area :'四川',
                             date:'2011/12/12',
                             variety:'',
-                            stock: '123'
+                            stock: '123',
+                            categoryIcon:'glass',
+                            categoryBgColor: 'blue'
                         },
                             {
                                 id: 100152,
@@ -395,7 +458,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'glass',
+                                categoryBgColor: 'blue'
                             },
                             {
                                 id: 100153,
@@ -405,7 +470,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'glass',
+                                categoryBgColor: 'blue'
                             },
                             {
                                 id: 100154,
@@ -415,7 +482,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'glass',
+                                categoryBgColor: 'blue'
                             },
                             {
                                 id: 100155,
@@ -425,7 +494,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'glass',
+                                categoryBgColor: 'blue'
                             },
                             {
                                 id: 100156,
@@ -435,7 +506,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'glass',
+                                categoryBgColor: 'blue'
                             }]
                     }
                 ]
@@ -443,10 +516,14 @@ define(['jquery','utilities'],function($,utilities){
             {
                 id: 1002,
                 name: '茶水',
+                categoryIcon:'beer',
+                categoryBgColor: 'red',
                 child:[
                     {
                         id:10021,
                         name:'茶-白酒',
+                        categoryIcon:'beer',
+                        categoryBgColor: 'red',
                         child:[
                             {
                                 id: 100211,
@@ -456,7 +533,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'beer',
+                                categoryBgColor: 'red',
                             },
                             {
                                 id: 100212,
@@ -466,7 +545,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'beer',
+                                categoryBgColor: 'red',
                             },
                             {
                                 id: 100213,
@@ -476,7 +557,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'beer',
+                                categoryBgColor: 'red',
                             },
                             {
                                 id: 100214,
@@ -486,7 +569,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'beer',
+                                categoryBgColor: 'red',
                             },
                             {
                                 id: 100215,
@@ -496,7 +581,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'beer',
+                                categoryBgColor: 'red',
                             },
                             {
                                 id: 100216,
@@ -506,13 +593,17 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'beer',
+                                categoryBgColor: 'red',
                             }
                         ]
                     },
                     {
                         id:10022,
                         name:'茶-红酒',
+                        categoryIcon:'beer',
+                        categoryBgColor: 'red',
                         child:[
                             {
                                 id: 100221,
@@ -522,7 +613,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'beer',
+                                categoryBgColor: 'red',
                             },
                             {
                                 id: 100222,
@@ -532,7 +625,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'法国',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'beer',
+                                categoryBgColor: 'red',
                             },
                             {
                                 id: 100223,
@@ -542,7 +637,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'法国',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'beer',
+                                categoryBgColor: 'red',
                             },
                             {
                                 id: 100224,
@@ -552,7 +649,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'法国',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'beer',
+                                categoryBgColor: 'red',
                             },
                             {
                                 id: 100225,
@@ -562,7 +661,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'法国',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'beer',
+                                categoryBgColor: 'red',
                             },
                             {
                                 id: 100226,
@@ -572,13 +673,17 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'法国',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'beer',
+                                categoryBgColor: 'red',
                             }
                         ]
                     },
                     {
                         id:10023,
                         name:'茶-洋酒',
+                        categoryIcon:'beer',
+                        categoryBgColor: 'red',
                         child:[
                             {
                                 id: 100231,
@@ -588,7 +693,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'beer',
+                                categoryBgColor: 'red',
                             },
                             {
                                 id: 1002132,
@@ -598,7 +705,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'beer',
+                                categoryBgColor: 'red',
                             },
                             {
                                 id: 100233,
@@ -608,7 +717,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'beer',
+                                categoryBgColor: 'red',
                             },
                             {
                                 id: 100234,
@@ -618,7 +729,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'beer',
+                                categoryBgColor: 'red',
                             },
                             {
                                 id: 100235,
@@ -628,7 +741,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'beer',
+                                categoryBgColor: 'red',
                             },
                             {
                                 id: 100236,
@@ -638,13 +753,17 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'beer',
+                                categoryBgColor: 'red',
                             }
                         ]
                     },
                     {
                         id:10024,
                         name:'茶-黄酒',
+                        categoryIcon:'beer',
+                        categoryBgColor: 'red',
                         child:[                            {
                             id: 100241,
                             name:'茶-顶珠',
@@ -653,7 +772,9 @@ define(['jquery','utilities'],function($,utilities){
                             area :'四川',
                             date:'2011/12/12',
                             variety:'',
-                            stock: '123'
+                            stock: '123',
+                            categoryIcon:'beer',
+                            categoryBgColor: 'red',
                         },
                             {
                                 id: 100242,
@@ -663,7 +784,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'beer',
+                                categoryBgColor: 'red',
                             },
                             {
                                 id: 100243,
@@ -673,7 +796,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'beer',
+                                categoryBgColor: 'red',
                             },
                             {
                                 id: 100244,
@@ -683,7 +808,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'beer',
+                                categoryBgColor: 'red',
                             },
                             {
                                 id: 100245,
@@ -693,7 +820,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'beer',
+                                categoryBgColor: 'red',
                             },
                             {
                                 id: 100246,
@@ -703,12 +832,16 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'beer',
+                                categoryBgColor: 'red',
                             }]
                     },
                     {
                         id:10025,
                         name:'茶-啤酒',
+                        categoryIcon:'beer',
+                        categoryBgColor: 'red',
                         child:[                            {
                             id: 100251,
                             name:'茶-格式化',
@@ -717,7 +850,9 @@ define(['jquery','utilities'],function($,utilities){
                             area :'四川',
                             date:'2011/12/12',
                             variety:'',
-                            stock: '123'
+                            stock: '123',
+                            categoryIcon:'beer',
+                            categoryBgColor: 'red',
                         },
                             {
                                 id: 100252,
@@ -727,7 +862,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'beer',
+                                categoryBgColor: 'red',
                             },
                             {
                                 id: 100253,
@@ -737,7 +874,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'beer',
+                                categoryBgColor: 'red',
                             },
                             {
                                 id: 100254,
@@ -747,7 +886,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'beer',
+                                categoryBgColor: 'red',
                             },
                             {
                                 id: 100255,
@@ -757,7 +898,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'beer',
+                                categoryBgColor: 'red',
                             },
                             {
                                 id: 100256,
@@ -775,10 +918,14 @@ define(['jquery','utilities'],function($,utilities){
             {
                 id: 1003,
                 name: '咖啡',
+                categoryIcon:'coffee',
+                categoryBgColor: 'green',
                 child:[
                     {
                         id:10031,
                         name:'咖啡-白酒',
+                        categoryIcon:'coffee',
+                        categoryBgColor: 'green',
                         child:[
                             {
                                 id: 100311,
@@ -788,7 +935,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'coffee',
+                                categoryBgColor: 'green',
                             },
                             {
                                 id: 100312,
@@ -798,7 +947,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'coffee',
+                                categoryBgColor: 'green',
                             },
                             {
                                 id: 100313,
@@ -808,7 +959,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'coffee',
+                                categoryBgColor: 'green',
                             },
                             {
                                 id: 100314,
@@ -818,7 +971,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'coffee',
+                                categoryBgColor: 'green',
                             },
                             {
                                 id: 100315,
@@ -828,7 +983,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'coffee',
+                                categoryBgColor: 'green',
                             },
                             {
                                 id: 100316,
@@ -838,13 +995,17 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'coffee',
+                                categoryBgColor: 'green',
                             }
                         ]
                     },
                     {
                         id:10032,
                         name:'咖啡-红酒',
+                        categoryIcon:'coffee',
+                        categoryBgColor: 'green',
                         child:[
                             {
                                 id: 100321,
@@ -854,7 +1015,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'coffee',
+                                categoryBgColor: 'green',
                             },
                             {
                                 id: 100322,
@@ -864,7 +1027,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'法国',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'coffee',
+                                categoryBgColor: 'green',
                             },
                             {
                                 id: 100323,
@@ -874,7 +1039,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'法国',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'coffee',
+                                categoryBgColor: 'green',
                             },
                             {
                                 id: 100324,
@@ -884,7 +1051,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'法国',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'coffee',
+                                categoryBgColor: 'green',
                             },
                             {
                                 id: 100325,
@@ -894,7 +1063,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'法国',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'coffee',
+                                categoryBgColor: 'green',
                             },
                             {
                                 id: 100326,
@@ -904,13 +1075,17 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'法国',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'coffee',
+                                categoryBgColor: 'green',
                             }
                         ]
                     },
                     {
                         id:10033,
                         name:'咖啡-洋酒',
+                        categoryIcon:'coffee',
+                        categoryBgColor: 'green',
                         child:[
                             {
                                 id: 100331,
@@ -920,7 +1095,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'coffee',
+                                categoryBgColor: 'green',
                             },
                             {
                                 id: 100332,
@@ -930,7 +1107,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'coffee',
+                                categoryBgColor: 'green',
                             },
                             {
                                 id: 100333,
@@ -940,7 +1119,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'coffee',
+                                categoryBgColor: 'green',
                             },
                             {
                                 id: 100334,
@@ -950,7 +1131,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'coffee',
+                                categoryBgColor: 'green',
                             },
                             {
                                 id: 100335,
@@ -960,7 +1143,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'coffee',
+                                categoryBgColor: 'green',
                             },
                             {
                                 id: 100336,
@@ -970,13 +1155,17 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'coffee',
+                                categoryBgColor: 'green',
                             }
                         ]
                     },
                     {
                         id:10034,
                         name:'咖啡-黄酒',
+                        categoryIcon:'coffee',
+                        categoryBgColor: 'green',
                         child:[                            {
                             id: 100341,
                             name:'咖啡-顶珠',
@@ -985,7 +1174,9 @@ define(['jquery','utilities'],function($,utilities){
                             area :'四川',
                             date:'2011/12/12',
                             variety:'',
-                            stock: '123'
+                            stock: '123',
+                            categoryIcon:'coffee',
+                            categoryBgColor: 'green',
                         },
                             {
                                 id: 100342,
@@ -995,7 +1186,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'coffee',
+                                categoryBgColor: 'green',
                             },
                             {
                                 id: 100343,
@@ -1005,7 +1198,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'coffee',
+                                categoryBgColor: 'green',
                             },
                             {
                                 id: 100344,
@@ -1015,7 +1210,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'coffee',
+                                categoryBgColor: 'green',
                             },
                             {
                                 id: 100345,
@@ -1025,7 +1222,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'coffee',
+                                categoryBgColor: 'green',
                             },
                             {
                                 id: 100346,
@@ -1035,12 +1234,16 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'coffee',
+                                categoryBgColor: 'green',
                             }]
                     },
                     {
                         id:10035,
                         name:'咖啡-啤酒',
+                        categoryIcon:'coffee',
+                        categoryBgColor: 'green',
                         child:[                            {
                             id: 100351,
                             name:'咖啡-格式化',
@@ -1049,7 +1252,9 @@ define(['jquery','utilities'],function($,utilities){
                             area :'四川',
                             date:'2011/12/12',
                             variety:'',
-                            stock: '123'
+                            stock: '123',
+                            categoryIcon:'coffee',
+                            categoryBgColor: 'green',
                         },
                             {
                                 id: 100352,
@@ -1059,7 +1264,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'coffee',
+                                categoryBgColor: 'green',
                             },
                             {
                                 id: 100353,
@@ -1069,7 +1276,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'coffee',
+                                categoryBgColor: 'green',
                             },
                             {
                                 id: 100354,
@@ -1079,7 +1288,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'coffee',
+                                categoryBgColor: 'green',
                             },
                             {
                                 id: 100355,
@@ -1089,7 +1300,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'coffee',
+                                categoryBgColor: 'green',
                             },
                             {
                                 id: 100356,
@@ -1099,7 +1312,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'coffee',
+                                categoryBgColor: 'green',
                             }]
                     }
                 ]
@@ -1107,10 +1322,14 @@ define(['jquery','utilities'],function($,utilities){
             {
                 id: 1004,
                 name: '主餐',
+                categoryIcon:'cutlery',
+                categoryBgColor: 'yellow',
                 child:[
                     {
                         id:10041,
                         name:'主-白酒',
+                        categoryIcon:'cutlery',
+                        categoryBgColor: 'yellow',
                         child:[
                             {
                                 id: 100411,
@@ -1120,7 +1339,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'cutlery',
+                                categoryBgColor: 'yellow',
                             },
                             {
                                 id: 100412,
@@ -1130,7 +1351,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'cutlery',
+                                categoryBgColor: 'yellow',
                             },
                             {
                                 id: 100413,
@@ -1140,7 +1363,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'cutlery',
+                                categoryBgColor: 'yellow',
                             },
                             {
                                 id: 100414,
@@ -1150,7 +1375,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'cutlery',
+                                categoryBgColor: 'yellow',
                             },
                             {
                                 id: 100415,
@@ -1160,7 +1387,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'cutlery',
+                                categoryBgColor: 'yellow',
                             },
                             {
                                 id: 100416,
@@ -1170,13 +1399,17 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'cutlery',
+                                categoryBgColor: 'yellow',
                             }
                         ]
                     },
                     {
                         id:10042,
                         name:'主-红酒',
+                        categoryIcon:'cutlery',
+                        categoryBgColor: 'yellow',
                         child:[
                             {
                                 id: 100421,
@@ -1186,7 +1419,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'cutlery',
+                                categoryBgColor: 'yellow',
                             },
                             {
                                 id: 100422,
@@ -1196,7 +1431,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'法国',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'cutlery',
+                                categoryBgColor: 'yellow',
                             },
                             {
                                 id: 100423,
@@ -1206,7 +1443,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'法国',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'cutlery',
+                                categoryBgColor: 'yellow',
                             },
                             {
                                 id: 100424,
@@ -1216,7 +1455,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'法国',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'cutlery',
+                                categoryBgColor: 'yellow',
                             },
                             {
                                 id: 100425,
@@ -1226,7 +1467,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'法国',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'cutlery',
+                                categoryBgColor: 'yellow',
                             },
                             {
                                 id: 100426,
@@ -1243,6 +1486,8 @@ define(['jquery','utilities'],function($,utilities){
                     {
                         id:10043,
                         name:'主-洋酒',
+                        categoryIcon:'cutlery',
+                        categoryBgColor: 'yellow',
                         child:[
                             {
                                 id: 100431,
@@ -1252,7 +1497,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'cutlery',
+                                categoryBgColor: 'yellow',
                             },
                             {
                                 id: 100432,
@@ -1262,7 +1509,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'cutlery',
+                                categoryBgColor: 'yellow',
                             },
                             {
                                 id: 100433,
@@ -1272,7 +1521,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'cutlery',
+                                categoryBgColor: 'yellow',
                             },
                             {
                                 id: 100434,
@@ -1282,7 +1533,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'cutlery',
+                                categoryBgColor: 'yellow',
                             },
                             {
                                 id: 100435,
@@ -1292,7 +1545,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'cutlery',
+                                categoryBgColor: 'yellow',
                             },
                             {
                                 id: 100436,
@@ -1302,13 +1557,17 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'cutlery',
+                                categoryBgColor: 'yellow',
                             }
                         ]
                     },
                     {
                         id:10044,
                         name:'主-黄酒',
+                        categoryIcon:'cutlery',
+                        categoryBgColor: 'yellow',
                         child:[                            {
                             id: 100441,
                             name:'主-顶珠',
@@ -1317,7 +1576,9 @@ define(['jquery','utilities'],function($,utilities){
                             area :'四川',
                             date:'2011/12/12',
                             variety:'',
-                            stock: '123'
+                            stock: '123',
+                            categoryIcon:'cutlery',
+                            categoryBgColor: 'yellow',
                         },
                             {
                                 id: 100442,
@@ -1327,7 +1588,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'cutlery',
+                                categoryBgColor: 'yellow',
                             },
                             {
                                 id: 100443,
@@ -1337,7 +1600,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'cutlery',
+                                categoryBgColor: 'yellow',
                             },
                             {
                                 id: 100444,
@@ -1347,7 +1612,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'cutlery',
+                                categoryBgColor: 'yellow',
                             },
                             {
                                 id: 100445,
@@ -1357,7 +1624,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'cutlery',
+                                categoryBgColor: 'yellow',
                             },
                             {
                                 id: 100446,
@@ -1367,12 +1636,16 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'cutlery',
+                                categoryBgColor: 'yellow',
                             }]
                     },
                     {
                         id:10045,
                         name:'主-啤酒',
+                        categoryIcon:'cutlery',
+                        categoryBgColor: 'yellow',
                         child:[                            {
                             id: 100451,
                             name:'主-格式化',
@@ -1381,7 +1654,9 @@ define(['jquery','utilities'],function($,utilities){
                             area :'四川',
                             date:'2011/12/12',
                             variety:'',
-                            stock: '123'
+                            stock: '123',
+                            categoryIcon:'cutlery',
+                            categoryBgColor: 'yellow',
                         },
                             {
                                 id: 100452,
@@ -1391,7 +1666,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'cutlery',
+                                categoryBgColor: 'yellow',
                             },
                             {
                                 id: 100453,
@@ -1401,7 +1678,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'cutlery',
+                                categoryBgColor: 'yellow',
                             },
                             {
                                 id: 100454,
@@ -1411,7 +1690,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'cutlery',
+                                categoryBgColor: 'yellow',
                             },
                             {
                                 id: 100455,
@@ -1421,7 +1702,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'cutlery',
+                                categoryBgColor: 'yellow',
                             },
                             {
                                 id: 100456,
@@ -1431,7 +1714,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                categoryIcon:'cutlery',
+                                categoryBgColor: 'yellow',
                             }]
                     }
                 ]

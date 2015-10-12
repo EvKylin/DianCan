@@ -71,7 +71,9 @@ define(['jquery','variable','mixin','initialization'],function($, variable,mixin
                             dishes : {
                                 id: 10011,
                                 name:'开水白菜',
-                                price:'123.33'
+                                price:'123.33',
+                                categoryIcon:'coffee',
+                                categoryBgColor: 'green',
                             }
                         } // 模拟数据
 
@@ -79,6 +81,7 @@ define(['jquery','variable','mixin','initialization'],function($, variable,mixin
                         if(data.status == true){
                             dishQueryData = data.dishes;
                             $calculatorStatus.text(data.dishes.name);
+                            variable.preelectStyle = [data.dishes.categoryBgColor,data.dishes.categoryIcon];
                         }else{
                             $calculatorStatus.text(variable.dishesQueryText[queryText]);
                         }

@@ -58,7 +58,7 @@ define(['variable'],function(variable){
         var foodCategory= $('<ul>',{'class':'food-list','id':'foodCategory'});
         var oderPai = $('<div>',{'class':'Oder-pai'}).text('餐牌');
         $.each(variable.foodList, function(index, category){
-            foodCategory.append( '<li id="'+category.id+'" class="food-'+variable.categoryBgColor[index]+'"><i class="fa fa-'+variable.categoryIcon[index]+'"></i> <em>'+category.name+'</em></li>');
+            foodCategory.append( '<li id="'+category.id+'" class="food-'+category.categoryBgColor+'"><i class="fa fa-'+category.categoryIcon+'"></i> <em>'+category.name+'</em></li>');
         });
         //variable.$orderConf.empty().append(oderPai);
         variable.$orderConf.empty().append(oderPai,foodCategory);

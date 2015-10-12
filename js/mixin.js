@@ -16,7 +16,7 @@ define(['jquery','variable'],function($, variable){
         var tmp_arr = variable.$preelect.find("li[data-food-id-number='"+dishKey+"']");
         var dish = variable.dishOther.getkey(dishKey);   // 从保存的数据数组中取出已添加的菜品
         if (dish == null) {
-          var html = '<li class="preelect-list preelect-'+variable.categoryBgColor[variable.categoryStatus]+'" data-food-id-number="'+ dishKey +'">'+
+          var html = '<li class="preelect-list preelect-'+variable.preelectStyle[0]+'" data-food-id-number="'+ dishKey +'">'+
               '<div class="preelect-status">'+
               (variable.isToGo ? '<b title="ToGo" class="ps-isToGo"></b>' :'') +
              // '<b title="attribute" class="ps-attribute"></b>'+
@@ -41,7 +41,7 @@ define(['jquery','variable'],function($, variable){
           if(newdish == dishId && dishprice == price && newistogo == istogo && newdishCount == dishCount) {
               // 更新份数 并将其移至到 最前面
               dish.copise = copies;
-              var html = '<li class="preelect-list preelect-'+variable.categoryBgColor[variable.categoryStatus]+'" data-food-id-number="'+ dishKey +'">'+
+              var html = '<li class="preelect-list preelect-'+variable.preelectStyle[0]+'" data-food-id-number="'+ dishKey +'">'+
                   '<div class="preelect-status">'+
                   (variable.isToGo ? '<b title="ToGo" class="ps-isToGo"></b>' :'') +
                  // '<b title="attribute" class="ps-attribute"></b>'+
