@@ -43,7 +43,6 @@ define(['jquery','variable','initialization'],function($, variable,initializatio
             variable.tip = 0.00;
             variable.$selectedDishes.find('span.tip').children('em').text('0.00');
         }
-
         //创建分单与撤消菜品容器 从左到右菜品移入
         if(variable.$menuMan == null && jsToSelected == false){
             variable.$menuMan = initialization.createSingleCase(variable.isSingle,  variable.operateStatus);

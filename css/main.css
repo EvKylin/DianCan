@@ -60,6 +60,7 @@ ul{ list-style: none;}
     background: #f5f5f5;
     /*padding: 8px;*/
     float: left;
+    position: relative;
 }
 
 .order-list{
@@ -94,9 +95,10 @@ ul{ list-style: none;}
 }
 
 .total-order{
-    border-bottom:1px solid #ddd;
+    border-bottom:1px solid #ccc;
     padding: 15px 12px;
     font-size: 16px;
+    background-color:#e2e2e2;
 }
 .total-order span{
     float: left;
@@ -113,7 +115,7 @@ ul{ list-style: none;}
 
 .total-order .tip{
     font-size: 14px;
-    color: #999;
+    color: #333;
 }
 .total-order .tip em{
     font-style: normal;
@@ -168,14 +170,22 @@ ul{ list-style: none;}
 
 /* 换桌 */
 .menu-changeTab{
-}
 
-.menu-changeTab .total-order{
-    background: #f5f5f5;
-    color: #666;
+    color:#fff;
 }
 .menu-changeTab .total-order .tip{
     color: #fff;
+}
+
+.menu-changeTab .total-order{
+    background: #8cc63f;
+    text-align: right;
+}
+.menu-changeTab .total-name{
+    margin-right: 5px;
+}
+.menu-changeTab .total-name ,.menu-changeTab .total{
+    float: none;
 }
 
 .menu-changeTab .table-list > tbody >tr:nth-child(2n+1){
@@ -194,11 +204,11 @@ ul{ list-style: none;}
 .payment{
     padding: 0;
     list-style: none;
-    margin:20px 0;
+    margin:8px 0;
 }
 .payment li{
     float: left;
-    margin: 0 8px;
+    width: 33.33%;
 }
 .payment li a{
     font-size: 12px;
@@ -230,8 +240,8 @@ ul{ list-style: none;}
 }
 
 .func-box{
-    height: inherit;
-    margin-bottom: -418px;
+    height: 60%;
+    overflow: hidden;
 }
 .func-set{
     padding: 0px  7px 0px 10px;
@@ -251,7 +261,7 @@ ul{ list-style: none;}
     font-family: 'PT Sans', Tahoma;
     background:  linear-gradient( #494949, #1A1A1A);
     text-align: center;
-    padding: 18px 0;
+    padding: 5% 0;
     cursor: pointer;
     transition: all .2s;
     white-space: nowrap;
@@ -259,6 +269,10 @@ ul{ list-style: none;}
 }
 .func-set li.active{
     background:  #000;
+    color: #FFF;
+}
+.func-set li.disabled{
+    background: #666;
 }
 
 .btn-set{
@@ -267,7 +281,7 @@ ul{ list-style: none;}
     color: #312a2a;
     font-size: 18px;
     border: none;
-    padding: 15px ;
+    padding: 3.5% ;
     outline: none;
 }
 .btn-set:active{
@@ -276,12 +290,12 @@ ul{ list-style: none;}
 }
 
 .calculator{
-    position: relative;
-    z-index: 3;
-    padding: 0px 10px 10px 10px;
+    height: 40%;
+    padding: 75px 10px 10px 10px;
 }
 .calculator-table{
     width: 100%;
+    height: 100%;
 }
 
 
@@ -289,13 +303,14 @@ ul{ list-style: none;}
     text-align: right;
     width: 100%;
     border:none;
-    outline: none; padding-right: 10px;
-    font-size: 35px;
-    height: 50px;
+    outline: none; 
+    font-size: 34px;
+	overflow:hidden;
 }
 .calculator-output{
     background: #fff;
-    padding: 8px;
+    padding:0 8px;
+	margin-top: -75px;
 }
 .calculator-icon{
     position: relative;
@@ -331,14 +346,21 @@ ul{ list-style: none;}
 .calculator-status{
     height: 30px;
     line-height: 30px;
-    font-size: 16px;
+    font-size: 1.2em;
     color: #666;
 }
+
+
+.calculator-table{
+    height: 100%;
+}
+
 .calculator-table > tbody >tr >td{
     width: 25%;
+    height: 25%;
     color: #fff;
     text-align: center;
-    padding: 27px 0;
+    padding: 3% 0;
     font-size:20px;
     border:1px solid #626262;
     background:  linear-gradient( #494949, #1A1A1A);
@@ -397,9 +419,9 @@ ul{ list-style: none;}
 .food-list >li >em{
     display: block;
     font-style: normal;
-    height: 20px;
-    font-size: 16px;
-    white-space: nowrap;
+    height: 45px;
+    font-size: 14px;
+    word-break: break-all;
     overflow: hidden;;
 }
 .food-list >li > .food-detail{
@@ -409,6 +431,7 @@ ul{ list-style: none;}
     white-space: nowrap;
     overflow: hidden;
     color: #FFF;
+    padding-top: 5px;
 }
 .food-list >li > .food-detail >b{
     display: inline-block;
@@ -425,7 +448,7 @@ ul{ list-style: none;}
     background:#C51F2B;
 }
 .food-list > .food-yellow,.preelect .preelect-yellow{
-    background:#EA992D;
+    background:#E58D22;
 }
 .food-list > .food-green,.preelect .preelect-green{
     background:#28a047;
@@ -434,6 +457,7 @@ ul{ list-style: none;}
 
 /* 底部预选菜单列表 */
 .preelect{
+    width: 100%;
     white-space:nowrap;
     overflow-x:scroll;
     font-size: 0;
@@ -495,14 +519,25 @@ ul{ list-style: none;}
 
 /* 切换餐桌 */
 
-.change-table{}
+.change-table{ width: 100%; height: 48px; background: #8cc63f;}
 .change-table .changeTab-title{
+    display: block;
+    float: left;
+    width: 50%;
     background: #8cc63f;
     text-align: left;
     color: #fff;
     font-size: 16px;
     padding: 15px 12px;
 }
+.change-table .changeTotal{
+     float: right;
+     width: 30%;
+     line-height: 48px;
+     color: #fff;
+     font-size: 16px;
+}
+
 
 /* 菜品属性 */
 .dishes-attribute{

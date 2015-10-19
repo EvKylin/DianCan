@@ -22,7 +22,6 @@ define(['jquery','variable','mixin','initialization'],function($, variable,mixin
                 var calcVal = $calculatorEnter.val() + dataKey;
 
                 $calculatorEnter.val(calcVal);
-
                 // 设置状态如果当处于无状态或下单状态 则将计算器在点击数字时设置为查询状态
                 if(variable.operateStatus == 'addOrder' || variable.operateStatus == ''){
                     variable.operateStatus = 'dishQuery';
@@ -77,6 +76,7 @@ define(['jquery','variable','mixin','initialization'],function($, variable,mixin
 
                         var queryText = data.status ? 'isTrue' : 'isFalse';
                         if(data.status == true){
+                            $calculatorStatus.css('text-align','right');
                             dishQueryData = data.dishes;
                             $calculatorStatus.text(data.dishes.name);
                         }else{
@@ -89,7 +89,7 @@ define(['jquery','variable','mixin','initialization'],function($, variable,mixin
                 console.log(variable.operateStatus);
                 break
             case 'AC':
-
+                $calculatorStatus.css('text-align','left');
                 $calculatorEnter.val('');
                 $calculatorStatus.text(variable.calculatorText[variable.operateStatus]);
 
@@ -161,6 +161,7 @@ define(['jquery','variable','mixin','initialization'],function($, variable,mixin
 
                 break;
             case 'submit':  // 计算器 橙色按钮
+                $calculatorStatus.css('text-align','left');
                 tabBtnSubmit();
                 break;
         }
@@ -219,12 +220,11 @@ define(['jquery','variable','mixin','initialization'],function($, variable,mixin
                 alert(tableNumber)
                 if(tableNumber != ''){
                     variable.changeTableNumber = tableNumber;
-                    initialization.changeTable(tableNumber);
+                    variable.$orderConf.find('.total-table').children('b').text(tableNumber);
 
                     $calculatorEnter.val('');
                     tableNumber = '';
 
-                    variable.$menuMan = null;
                     initialization.initSelectedDishes();
                     variable.dishOrderSplit.empty();
 
@@ -232,10 +232,8 @@ define(['jquery','variable','mixin','initialization'],function($, variable,mixin
                     if(variable.dishOrderSplit.splitList.length){
                         console.log(variable.dishOrderSplit);
 
-
                         // 还原状态
                         variable.dishOrderSplit.empty();
-                        variable.$menuMan = null;
                         initialization.dishesCategory();
                         initialization.calculatorInit();
                         variable.operateStatus = '';
@@ -318,7 +316,7 @@ define(['jquery','variable','mixin','initialization'],function($, variable,mixin
                 if(tip){
                     variable.tip = tip;
 
-                    alert(variable.lastSingleStatus)
+                    //alert(variable.lastSingleStatus)
 
                     if(variable.lastSingleStatus == 'single'){
                         variable.$selectedDishes.find('span.tip').children('em').text('0.00');

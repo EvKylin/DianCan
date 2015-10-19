@@ -23,7 +23,7 @@ define(['jquery','variable','initialization'],function($, variable,initializatio
      *
      * $this.index() 选择操作功能区域，大于5时则表示设打印方式 否则则表示执行各不同功能
      */
-    variable.$funcSet.on('click','li',function(){
+    variable.$funcSet.on('click','li:not(.disabled)',function(){
         var $this = $(this);
         var dataKey = $this.attr('data-key');
 
@@ -33,6 +33,7 @@ define(['jquery','variable','initialization'],function($, variable,initializatio
             variable.printStatus = dataKey;
         }else{
             // 初始化相关数据
+            variable.$funcSet.find('li:eq(4)').removeClass('disabled');  // 撤销小费禁用
             $this.toggleClass('active').siblings(':lt(5)').removeClass('active');
             initialization.calculatorInit();  // 计算器部分初始化
 
@@ -104,6 +105,23 @@ define(['jquery','variable','initialization'],function($, variable,initializatio
                         $calculatorTimes.addClass('disabled');
                         $calculatorDecimal.addClass('disabled');
                         variable.$preelect.empty();  // 清空预览列表
+						variable.dishOther.empty();  // 清空数据
+
+
+                        if(!variable.isSingle){variable.isSingle = true;}
+
+                        if(variable.isSingle){
+                            // 创建撤销菜单
+                            if(variable.$menuMan == null){
+                                variable.$menuMan = initialization.createSingleCase(variable.isSingle, variable.operateStatus);  // 创建撤销菜单容器
+                                variable.$orderConf.empty().append(variable.$menuMan);
+                            }else{
+                                variable.$orderConf.empty().append(variable.$menuMan);
+                                // ??? 空留 分单与撤消切换控制
+                            }
+
+                        }
+
                         break;
                     case 'cancelMenu':
                         variable.$preelect.empty();  // 清空预览列表
@@ -175,6 +193,8 @@ define(['jquery','variable','initialization'],function($, variable,initializatio
         $this.attr('data-key','back').text(variable.funSetBtnText['back']);
         variable.$funcSet.find('li:lt(6)').removeClass('active');
         initialization.calculatorInit();     // 计算器部分初始化
+
+        variable.$funcSet.find('li:eq(4)').removeClass('disabled');  // 撤销小费禁用
 
 
 

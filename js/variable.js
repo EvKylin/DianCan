@@ -13,7 +13,7 @@ define(['jquery','utilities'],function($,utilities){
         $calculatorSubmit   : $('#calcBtn'),              // 计算器按钮
         $calculatorEnter    : $('#calcEnter'),            // 计算器输入框
         $calculatorStatus   : $('#calcStatus'),           // 计算器状态框
-        $calculatorIcon     : $('#calcIcon'),              // 计算器小费折扣状态
+        $calculatorIcon     : $('#calcIcon'),             // 计算器小费折扣状态
         calculatorText      : {
             changeTable     : '请输入需要更换的餐桌',
             tip             : '请输入小费金额',
@@ -111,10 +111,12 @@ define(['jquery','utilities'],function($,utilities){
             {
                 id: 1001,
                 name: '酒水',
+                categoryColor:'#00f',
                 child:[
                     {
                         id:10011,
                         name:'白酒',
+                        parentCate: 1001,
                         child:[
                             {
                                 id: 100111,
@@ -124,7 +126,9 @@ define(['jquery','utilities'],function($,utilities){
                                 area :'四川',
                                 date:'2011/12/12',
                                 variety:'',
-                                stock: '123'
+                                stock: '123',
+                                parentCate: 10011,
+                                rootId :1001
                             },
                             {
                                 id: 100112,

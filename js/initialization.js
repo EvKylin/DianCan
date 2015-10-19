@@ -20,11 +20,14 @@ define(['variable'],function(variable){
        var html =  '<div class="menu-group '+ menuStyle +'">'+
             <!-- menu-single menu-undo : 分单 和 撤销菜单-->
         '<div class="total-order clearfix">'+
+
+           ((operateStatus == 'changeTable') ? '<span class="total-table">确定换桌到：<b class="table-number"></b>号</span>' :'')+
+
         '<span class="total-name">'+ splitType +'总额:</span>'+
 
            ((operateStatus == 'single') ? '<span class="tip">(小费：<em>0.00</em><i>'+ variable.currencySymbol +'</i>)</span>' : '') +
 
-        '<span class="total"><b>0.00</b><i class="fa fa-euro fa-fw"></i></span>'+
+        '<span class="total"><b>0.00</b><i>€</i></span>'+
         '</div>'+
         '<table class="table-list">'+
         '<tbody>'+
@@ -64,14 +67,6 @@ define(['variable'],function(variable){
         variable.$orderConf.empty().append(oderPai,foodCategory);
     }
 
-    // 换桌 初始化
-    function changeTable(tableNumber){
-        var html = '<div class="change-table">'+
-            '<div class="changeTab-title">确定换到'+tableNumber+'号</div>'+
-            '</div>';
-        variable.$orderConf.empty().append(html);
-    }
-
     // 计算器初始化
     function calculatorInit(){
         variable.$calculatorTable.find('td').removeClass('disabled');
@@ -99,8 +94,9 @@ define(['variable'],function(variable){
         createSingleCase   : createSingleCase,
         initSelectedDishes : initSelectedDishes,
         dishesCategory     : dishesCategory,
-        changeTable        : changeTable,
         calculatorInit     : calculatorInit,
         dishesAttributeInit:dishesAttributeInit
     }
 });
+
+
