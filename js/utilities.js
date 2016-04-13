@@ -13,7 +13,10 @@ define([], function () {
     //DishClass
     function DishClass() {
         this.dishs = [];
-        this.put = function (key, dishID, copise, dishPrice, isTogo, dishCount, extraID) {
+    };
+    DishClass.prototype = {
+        constructor: DishClass,
+        put : function (key, dishID, copise, dishPrice, isTogo, dishCount, extraID) {
             for (var i = 0; i < this.dishs.length; i++) {
                 if (this.dishs[i].key === key) {
                     this.dishs[i].dishID = dishID;
@@ -26,7 +29,8 @@ define([], function () {
                 }
             }
             this.dishs[this.dishs.length] = new dish(key, dishID, copise, dishPrice, isTogo, dishCount, extraID);
-        }, this.removeKey = function (key) {
+        },
+        removeKey : function (key) {
             var v;
             for (var i = 0; i < this.dishs.length; i++) {
                 v = this.dishs.pop();
@@ -34,7 +38,8 @@ define([], function () {
                     continue;
                 this.dishs.unshift(v);
             }
-        }, this.getkey = function (key) {
+        },
+        getkey : function (key) {
             for (var i = 0; i < this.dishs.length; i++) {
                 if (this.dishs[i].key === key) {
                     return this.dishs[i];
@@ -42,16 +47,20 @@ define([], function () {
             }
             return null;
 
-        }, this.ValusSet = function () {
+        },
+        ValusSet : function () {
             var keyArray = [];
             for (var i = 0; i < this.dishs.length; i++) {
                 keyArray[i] = this.dishs[i];
             }
             return keyArray;
-        },this.empty = function(){
+        },
+        empty : function(){
             this.dishs = [];
         }
-    };
+    }
+
+
 
 
     // 所选菜品属性 例如 属性ID 名称
